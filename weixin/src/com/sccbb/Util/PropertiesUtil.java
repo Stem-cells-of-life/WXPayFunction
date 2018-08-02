@@ -70,8 +70,8 @@ public class PropertiesUtil {
 				propertiesValue.put("SANDBOX_AUTHCODETOOPENID_URL_SUFFIX",properties.getProperty("SANDBOX_AUTHCODETOOPENID_URL_SUFFIX"));//WXPayConstants类常量
 				return propertiesValue;
 			}
-//	public static void main(String[] args) {
-//		System.out.println(getProperties().get("MESSAGE_SUBSCRIBE"));//通过调用工具类中的getProperties().get("属性名")方法获取属性值
-//		
-//}		
+//				public static void main(String[] args) {
+//					System.out.println(getProperties().get("MESSAGE_SUBSCRIBE"));//通过调用工具类中的getProperties().get("属性名")方法获取属性值
+//					
+//			}		
 }

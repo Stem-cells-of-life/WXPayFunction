@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class CheckUtil {
 
 				//private static final String token = "sccbb";//公众号的设置
-	            private static final String token;
+	            private static final String token ;
 	            static {
 	            	PropertiesUtil ropertiesUtilp=new PropertiesUtil();
 					token=ropertiesUtilp.getProperties().get("token");

@@ -37,7 +37,6 @@ public class login extends HttpServlet {
 									req.getRequestDispatcher("erro.html").forward(req, resp);
 							}else{
 								if(getUserMsg(usernum, sfznum)){
-									System.out.println("��֤ͨ��");
 									if("X".equals(usernum.substring(2, 3))){
 										req.setAttribute("photo","qx.jpg");
 									}
@@ -49,7 +48,6 @@ public class login extends HttpServlet {
 									}
 									req.getRequestDispatcher("end.jsp").forward(req, resp);
 								}else{
-									System.out.println("��֤ʧ��");
 									req.getRequestDispatcher("erro.html").forward(req, resp);
 								}
 							}
