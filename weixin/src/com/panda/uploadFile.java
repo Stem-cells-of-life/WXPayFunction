@@ -39,7 +39,7 @@ public class uploadFile extends HttpServlet {
 								  		fis.close();
 								  		os.close();
 								  	}else{
-								  		throw new IOException("绋嬪簭鍑洪敊");
+								  		throw new IOException("文件不存在");
 								  	}
 						}
 }
