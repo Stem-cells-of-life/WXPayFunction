@@ -37,7 +37,6 @@ public class login extends HttpServlet {
 									req.getRequestDispatcher("erro.html").forward(req, resp);
 							}else{
 								if(getUserMsg(usernum, sfznum)){
-									System.out.println("��֤ͨ��");
 									if("X".equals(usernum.substring(2, 3))){
 										req.setAttribute("photo","qx.jpg");
 									}
@@ -49,27 +48,12 @@ public class login extends HttpServlet {
 									}
 									req.getRequestDispatcher("end.jsp").forward(req, resp);
 								}else{
-									System.out.println("��֤ʧ��");
 									req.getRequestDispatcher("erro.html").forward(req, resp);
 								}
 							}
 					}
 					
-					//������ݿ�
-//					public Connection getCon() {
-//						Connection con = null;
-//						try {
-//							Class.forName("oracle.jdbc.driver.OracleDriver");
-//							con =(Connection) DriverManager.getConnection
-//									("jdbc:oracle:thin:@192.168.1.112:1521:orcl","hubei","hubei");
-//						} catch (Exception e) {
-//							e.printStackTrace();
-//						}
-//							return con;
-//					}
-					
-					
-					//ֱ�ӵõ����ؽ��ture,false
+							
 					public Boolean getUserMsg(String usernum,String sfznum){
 						GetConnection getCon=new GetConnection();
 						HashMap hm = new HashMap();
