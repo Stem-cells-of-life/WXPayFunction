@@ -1,10 +1,5 @@
 # Compiled class file
-<<<<<<< HEAD
-*.classes
 
-=======
-*.class
->>>>>>> 4739a33d5a47638200a9f0ef2c96154b5ee84e42
 # Log file
 *.log
 
@@ -29,10 +24,3 @@
 hs_err_pid*
 weixin/.classpath
 weixin/.mymetadata
-
-weixin/.classpath
-weixin/.mymetadata
-weixin/.classpath
-weixin/.classpath
-weixin/.mymetadata
-weixin/.classpath
