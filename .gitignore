@@ -1,6 +1,10 @@
 # Compiled class file
+<<<<<<< HEAD
 *.classes
 
+=======
+*.class
+>>>>>>> 4739a33d5a47638200a9f0ef2c96154b5ee84e42
 # Log file
 *.log
 
@@ -23,3 +27,6 @@
 .metadata/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+weixin/.classpath
+weixin/.mymetadataweixin/.mymetadata
+
