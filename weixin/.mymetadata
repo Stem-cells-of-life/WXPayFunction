@@ -2,7 +2,7 @@
 <project-module
   type="WEB"
   name="weixin"
-  id="myeclipse.1529136996735"
+  id="myeclipse.1533269044583"
   context-root="/weixin"
   j2ee-spec="6.0"
   archive="weixin.war">
