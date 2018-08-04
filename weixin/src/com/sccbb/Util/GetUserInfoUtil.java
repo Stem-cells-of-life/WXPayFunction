@@ -19,8 +19,13 @@ public class GetUserInfoUtil {
 				
 //					public static final String APPID = "wxfe7cdb7a0ac5894f";
 //					public static final String SECRET = "c6a5488b81b958000f103042c5e0bdf3";
-	               private static  String APPID = PropertiesUtil.getProperties().getProperty("APPID").toString();
-	               private static  String SECRET = PropertiesUtil.getProperties().getProperty("SECRET").toString();
+	               private static  String APPID="APPID";
+	               private static  String SECRET="SECRET";
+	 static {
+     	PropertiesUtil propertiesUtil=new PropertiesUtil();
+     	APPID=propertiesUtil.getProperties(APPID).get(APPID);
+     	SECRET=propertiesUtil.getProperties(SECRET).get(SECRET);
+ 	}
 
 					//下面是测试账号的 APPID和密码
 				//	public static final String APPID = "wxce126f5a1a10ea21";
@@ -29,8 +34,6 @@ public class GetUserInfoUtil {
 					
 					//获取全局的Access_token，这个不是支付的Access_token
 					public static String getAccess_token() throws Exception {
-						System.out.println("APPID="+APPID);
-						System.out.println("SECRET="+SECRET);
 						URL url  =new URL("https://api.weixin.qq.com/cgi-bin/token?" +
 								"grant_type=client_credential" +
 								"&appid="+APPID +

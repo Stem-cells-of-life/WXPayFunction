@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sccbb.Util.HttpRequestMethod;
-import com.sccbb.Util.PropertiesUtil;
 import com.sccbb.Util.WXPayUtil;
 
 import net.sf.json.JSONObject;
@@ -106,7 +105,7 @@ public class GetPayInfoServlet extends HttpServlet {
 				//得到一个组装的用来获取paySign值得MAP   5个参数
 				public Map<String,String> getPayMap (String prepay_id){
 					Map<String,String> map = new HashMap<String, String>();
-					map.put("appId", PropertiesUtil.getProperties().getProperty("APPID").toString().trim());//appId  "I" 是大写
+					map.put("appId", "wxfe7cdb7a0ac5894f");//appId  "I" 是大写
 					map.put("timeStamp", WXPayUtil.getCurrentTimestamp()+"");//大写timeStamp
 					map.put("nonceStr", WXPayUtil.generateNonceStr());
 					map.put("package", "prepay_id="+prepay_id);  //我的妈呀，这个key值必须叫"package",不然要影响签名算法!!
@@ -127,7 +126,7 @@ public class GetPayInfoServlet extends HttpServlet {
 				private String getPrepay_id(String ip, String openid,String fee,String ordernumber) throws Exception {
 					String prepay_id = null;
 					Map<String,String> hm = new HashMap();
-					String appid =PropertiesUtil.getProperties().getProperty("APPID").toString();
+					String appid ="wxfe7cdb7a0ac5894f";
 					String mch_id ="1507331291";
 					String nonce_str = WXPayUtil.generateNonceStr();
 					String body = "动感面膜";  //注意中文有编码问题 
@@ -136,7 +135,6 @@ public class GetPayInfoServlet extends HttpServlet {
 					String notify_url ="203624vk44.iok.la/weixin/recellpay.do";//支付完成后的回调，不明白是干嘛的。。
 					String trade_type  ="JSAPI";
 //					String sign_type ="MD5";   //如果有问题，就把这个加上去
-					System.out.println(PropertiesUtil.getProperties().getProperty("APPID").toString().trim());
 					hm.put("appid",appid );
 					hm.put("mch_id",mch_id );
 					hm.put("nonce_str",nonce_str );
