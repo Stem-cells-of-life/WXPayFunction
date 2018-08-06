@@ -45,10 +45,11 @@ public class GetPayInfoServlet extends HttpServlet {
 		        String code = req.getParameter("code");
 		        String fee =null;//金额
 		        HttpSession session = req.getSession();
-		        String username =session.getAttribute("username").toString();
+	        	String username =session.getAttribute("username").toString();
 		        String number = session.getAttribute("number").toString();
 		        String phone = session.getAttribute("phone").toString();
 		        String address = session.getAttribute("address").toString();
+		    
 		        try{
 		        	//spbill_create_ip 获取请求方的ip 
 		            String ip  =req.getHeader("x-forwarded-for");
