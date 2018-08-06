@@ -1,4 +1,4 @@
-package com.panda;
+package com.sccbb.servlet;
 
 import java.io.IOException;
 import java.sql.Connection;

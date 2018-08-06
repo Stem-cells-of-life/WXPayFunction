@@ -11,7 +11,7 @@
     <!-- 检测报告-->
   <servlet>
   		<servlet-name>login</servlet-name>
-  		<servlet-class>com.panda.login</servlet-class>
+  		<servlet-class>com.sccbb.servlet.login</servlet-class>
   </servlet>
   <servlet-mapping>
   		<servlet-name>login</servlet-name>
@@ -20,7 +20,7 @@
   
     <servlet>
   		<servlet-name>upload</servlet-name>
-  		<servlet-class>com.panda.uploadFile</servlet-class>
+  		<servlet-class>com.sccbb.servlet.uploadFile</servlet-class>
   </servlet>
   <servlet-mapping>
   		<servlet-name>upload</servlet-name>

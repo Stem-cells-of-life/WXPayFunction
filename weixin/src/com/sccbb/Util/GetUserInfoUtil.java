@@ -29,8 +29,6 @@ public class GetUserInfoUtil {
 					
 					//获取全局的Access_token，这个不是支付的Access_token
 					public static String getAccess_token() throws Exception {
-						System.out.println("APPID="+APPID);
-						System.out.println("SECRET="+SECRET);
 						URL url  =new URL("https://api.weixin.qq.com/cgi-bin/token?" +
 								"grant_type=client_credential" +
 								"&appid="+APPID +
