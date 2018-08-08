@@ -22,8 +22,8 @@ public class uploadFile extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 	throws ServletException, IOException {
-	File file  =  new File("C:\\Users\\zgk\\Desktop\\DKXY.rar");
-//	File file  =  new File("C:\\Users\\Administrator\\Desktop\\DKXY.rar");
+//	File file  =  new File("C:\\Users\\zgk\\Desktop\\DKXY.rar");
+	File file  =  new File("C:\\Users\\Administrator\\Desktop\\DKXY.rar");
 			  	if(file.exists()){
 			  		String fname = URLEncoder.encode(file.getName(),"UTF-8");
 			  		InputStream fis = new FileInputStream(file);
