@@ -303,5 +303,7 @@ public class WXPayUtil {
 //        System.out.println("hb"+df.format(new Date()).toString().substring(2,16));// new Date()为获取当前系统时间
     		SimpleDateFormat ordertimes=new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒 E ");
     		System.out.println(ordertimes.format(new Date()));
+    		
+    		System.out.println(UUID.randomUUID().toString().replaceAll("-", "").substring(0, 32));
 	}
 }

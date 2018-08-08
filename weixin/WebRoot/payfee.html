@@ -29,10 +29,6 @@
 		background-color:green;
 	}
 	
-	img{
-		border-radius:50%;
-	}
-	
 	#login{
 		width:auto;
 		height:auto;
@@ -50,33 +46,28 @@
 </style>
 </head>
 <body>
-	<div style="text-align: center;font-size:6vw;margin-top:5vh;margin-bottom:5vh;">
-			<img alt="logo" src="img/logo.png">
-	</div>
-	<div style="text-align: center;font-size:6vw;margin-top:5vh;margin-bottom:5vh;margin-left: 3vw;">
-			<p>年度监测报告自助查询</p>
-	</div>
-	<div id="login">  
+<div id="login">  
 		<form action="http://203624vk44.iok.la/weixin/login" method="post"
 				enctype="application/x-www-form-urlencoded"  onsubmit="return sbt();">
 			<p style="margin-left: -15vw;">
-   			协议号：<input type="text" name="usernum" id="usernum"/>
+   			姓名：<input type="text" name="usernum" id="usernum" onblur="checkname()"/>
    			</p>
    			<p style="margin-top:4vh; margin-left: -15vw;">
-			身份证：<input type="text" name="sfznum" id="sfznum"/>
+			身份证：<input type="text" name="sfznum" id="sfznum" onblur="sbt()"  />
 			</p>
 			<p id="conmit">
-				<input type="submit" value="提交" />
+				<input type="submit" value="确认" />
 			</p>
 		</form>
 	</div>
 </body>
 <script type="text/javascript">	
+	
 	function sbt(){
 		var usernum = document.getElementById("usernum").value.toUpperCase().trim();
 		var sfznum = document.getElementById("sfznum").value.trim();
 		if(usernum==""){
-			alert("协议号不能为空");
+			alert("姓名不能为空");
 			return false;
 		}else{
 			var fot = checkusernum(usernum);
@@ -91,20 +82,13 @@
 		}
 		return false;
 	}
-	
-	function checkusernum(usernum){
-		var hb = usernum.substring(0,2);
-		if("HB"!=hb){
-			alert("协议号格式错误")
-			return false;
-		}
-		if(usernum.length != 13){
-			alert("协议号长度不对")
-			return false;
-		}
-		return true;
-	}
-	
+function checkName(){
+	    var usernum = document.getElementById("usernum").value.toUpperCase().trim();
+            if(usernum.value.match(/^[\u4e00-\u9fa5]+$/)) 
+                else alert('请输入中文');
+                               
+             }
+
 	function checksfznum(sfznum){
 			var city={11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",21:"辽宁",22:"吉林",23:"黑龙江 ",
 						31:"上海",32:"江苏",33:"浙江",34:"安徽",35:"福建",36:"江西",37:"山东",41:"河南",
