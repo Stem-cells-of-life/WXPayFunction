@@ -66,14 +66,14 @@ public class GetPayInfoServlet extends HttpServlet {
 		                String[] ips = ip.split(",");  
 		                ip = ips[0].trim();  
 		            }  
-		            
-		            fee = String.valueOf(Integer.valueOf(number)*1*100); // 卖198一盒 正式代码 单位为分
-		            String fee2 = String.valueOf(Integer.valueOf(number)*1);//显示费用
+		           
+		            fee = String.valueOf(Integer.valueOf(number)*218*100); // 卖198一盒 正式代码 单位为分
+		            String fee2 = String.valueOf(Integer.valueOf(number)*218);//显示费用
 		        	String openid =getOpenId(code);//获取OpenId
 		        	String ordernumber = getordernumber();//生成订单号
 		        	String prepay_id = getPrepay_id(ip,openid,fee,ordernumber);//获取预支付ID
 		        	
-		//				        	session.setAttribute("money", fee);//保存实际支付金额，单位为分
+		//			session.setAttribute("money", fee);//保存实际支付金额，单位为分
 		
 		        	Map<String,String>  payMap = getPayMap(prepay_id);
 		        	String paySign = getSign(payMap);//获取签名

@@ -80,8 +80,8 @@ public class ReCellPay extends HttpServlet {
 				try{
 					String sql ="insert into REWXPAYINFO " +
 											"(id,ordernumber,transaction_id,is_subscribe,total_fee," +
-											"time_end,fee_type,bank_type,cash_fee,openid,isexpress,isvalid)" +
-											"values (SEQ_REWXPAYINFO.nextval,?,?,?,?,?,?,?,?,?,?,?)";
+											"time_end,fee_type,bank_type,cash_fee,openid,isvalid)" +
+											"values (SEQ_REWXPAYINFO.nextval,?,?,?,?,?,?,?,?,?,?)";
 					ps=conn.prepareStatement(sql);
 					ps.setString(1, map.get("out_trade_no").toString());
 					ps.setString(2, map.get("transaction_id").toString());
@@ -93,7 +93,6 @@ public class ReCellPay extends HttpServlet {
 					ps.setString(8, map.get("cash_fee").toString());
 					ps.setString(9, map.get("openid").toString());
 					ps.setString(10,"01");
-					ps.setString(11, "01");
 					ps.execute();
 				}catch (Exception e) {
 					e.printStackTrace();
