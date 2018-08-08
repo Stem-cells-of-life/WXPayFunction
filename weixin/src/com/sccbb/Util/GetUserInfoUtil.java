@@ -19,13 +19,8 @@ public class GetUserInfoUtil {
 				
 //					public static final String APPID = "wxfe7cdb7a0ac5894f";
 //					public static final String SECRET = "c6a5488b81b958000f103042c5e0bdf3";
-	               private static  String APPID="APPID";
-	               private static  String SECRET="SECRET";
-	 static {
-     	PropertiesUtil propertiesUtil=new PropertiesUtil();
-     	APPID=propertiesUtil.getProperties(APPID).get(APPID);
-     	SECRET=propertiesUtil.getProperties(SECRET).get(SECRET);
- 	}
+	               private static  String APPID = PropertiesUtil.getProperties().getProperty("APPID").toString();
+	               private static  String SECRET = PropertiesUtil.getProperties().getProperty("SECRET").toString();
 
 					//下面是测试账号的 APPID和密码
 				//	public static final String APPID = "wxce126f5a1a10ea21";

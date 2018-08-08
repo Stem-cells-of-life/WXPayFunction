@@ -7,16 +7,12 @@ public class CheckUtil {
 
 				//private static final String token = "sccbb";//公众号的设置
 //	            private static final String token;
-                private static  String token="token";   
-	            static {
-	            	PropertiesUtil propertiesUtil=new PropertiesUtil();
-//					token=ropertiesUtilp.getProperties().get("token");
-                token=propertiesUtil.getProperties(token).get(token);
-	        	}
-	           
+                private static  String token=PropertiesUtil.getProperties().getProperty("token").toString();  
+	      	         
 				public static boolean checkSignature(String signature,String timestamp,String nonce){
 						//把参数放在数组里面
 					String [] arr = new String[]{token,timestamp,nonce};
+					System.out.println("token="+token);
 					//排序
 					Arrays.sort(arr);
 					//生成字符串

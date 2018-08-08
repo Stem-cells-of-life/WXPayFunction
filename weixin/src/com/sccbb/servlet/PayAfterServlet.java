@@ -76,8 +76,8 @@ public class PayAfterServlet extends HttpServlet {
 					PreparedStatement ps =null;
 						try{
 							String sql ="insert into ordersinfo " +
-									"(id,ordernumber,cusname,cusphone,bynumber,address,fee,ordertimes,isvalid,state)" +
-									" values (seq_ordersinfo.nextval,?,?,?,?,?,?,?,?,?)";
+									"(id,ordernumber,cusname,cusphone,bynumber,address,fee,ordertimes,isvalid,state,isexpress)" +
+									" values (seq_ordersinfo.nextval,?,?,?,?,?,?,?,?,?,?)";
 							ps = conn.prepareStatement(sql);
 							ps.setString(1, map.get("ordernumber").toString());
 							ps.setString(2, map.get("cusname").toString());
@@ -88,6 +88,7 @@ public class PayAfterServlet extends HttpServlet {
 							ps.setString(7, map.get("ordertimes").toString());
 							ps.setString(8, "01");
 							ps.setString(9, map.get("state").toString());
+							ps.setString(10,"01");
 							ps.execute();
 						}catch (Exception e) {
 							e.printStackTrace();

@@ -18,7 +18,7 @@ import com.sccbb.Util.PropertiesUtil;
  * @author panda2wa
  *
  */
-public class GetCodeServlet extends HttpServlet {
+public class GetCodeServlet2 extends HttpServlet {
 			@Override
 			protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 					throws ServletException, IOException {
@@ -49,15 +49,15 @@ public class GetCodeServlet extends HttpServlet {
 						session.setAttribute("address", req.getParameter("address").toString());
 				        String redirect_uri=URLEncoder.encode("http://203624vk44.iok.la/weixin/pay.do", "UTF-8");
 				        StringBuffer url = new StringBuffer("https://open.weixin.qq.com/connect/oauth2/authorize?" +
-			        		"appid="+appid+
-			        		"&redirect_uri=" +redirect_uri+
-			        		"&response_type=code" +
-			        		"&scope=snsapi_base" +
-			        		"&state=ok#wechat_redirect");
-						    resp.sendRedirect(url.toString());
+						        		"appid="+appid+
+						        		"&redirect_uri=" +redirect_uri+
+						        		"&response_type=code" +
+						        		"&scope=snsapi_base" +
+						        		"&state=ok#wechat_redirect");
+//									    resp.sendRedirect(url.toString());
 					}catch (Exception e) {
-						e.printStackTrace();
-						resp.getWriter().print("<h1>后台程序出错</h1>");
+									e.printStackTrace();
+									resp.getWriter().print("<h1>后台程序出错</h1>");
 					}
 	 }
 }

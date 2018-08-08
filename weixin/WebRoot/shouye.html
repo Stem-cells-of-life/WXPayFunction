@@ -80,6 +80,7 @@
 			width:30vw;
 			height:20vh;
 			font-family:"微软雅黑";
+			font-size:20px;
 			background-color:red;
 			text-align:center;
 		}
@@ -97,7 +98,9 @@
 					<h2 class="name3">自助服务</h2>
 				</div>
 				<div class="left">
-					<input type="button" class="fee" name="fee" value="缴冻存费"/>
+					<input type="button" class="fee" 
+					name="fee" value="缴冻存费"
+					onclick="paydongcunfei()"/>
 				</div>
 				<div class="right">
 					<input type="button" class="mianmo" 
@@ -111,6 +114,12 @@
 			// http://203624vk44.iok.la/weixin/code.do
 			function paymianmo(){
 					window.location.href="http://203624vk44.iok.la/weixin/buyinfo.html?a="+Math.floor(Math.random()*10000);
+			}
+</script>
+<script type="text/javascript">
+            function paydongcunfei(){
+			//		window.location.href="http://203624vk44.iok.la/weixin/buyinfo.html?a="+Math.floor(Math.random()*10000);
+				alert("项目施工中...");
 			}
 </script>
 </html>
