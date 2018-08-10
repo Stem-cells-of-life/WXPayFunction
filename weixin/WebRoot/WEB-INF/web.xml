@@ -74,4 +74,13 @@
   		<servlet-name>payafter</servlet-name>
   		<url-pattern>/payafter.do</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>savefeelogin</servlet-name>
+    <servlet-class>com.sccbb.servlet.SaveFeeLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>savefeelogin</servlet-name>
+    <url-pattern>/savefeelogin</url-pattern>
+  </servlet-mapping>
 </web-app>

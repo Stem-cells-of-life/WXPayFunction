@@ -105,11 +105,11 @@
 			<h2 class="name3">自助服务</h2>
 		</div>
 		<div id="login">
-			<form action="http://203624vk44.iok.la/weixin/login" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return sbt();">
+			<form action="http://localhost:8080/weixin/savefeelogin" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return sbt();">
 				<table>
 					<tr>
 						<td class="label">姓名：</td>
-						<td class="input"><input type="text" name="usernum" id="usernum" onblur="checkname()" /></td>
+						<td class="input"><input type="text" name="username" id="username" onblur="checkname()" /></td>
 					</tr>
 					<tr>
 						<td class="label">身份证：</td>
@@ -125,13 +125,13 @@
 	</body>
 	<script type="text/javascript">
 		function sbt() {
-			var usernum = document.getElementById("usernum").value.toUpperCase().trim();
+			var username = document.getElementById("username").value.toUpperCase().trim();
 			var sfznum = document.getElementById("sfznum").value.trim();
-			if(usernum == "") {
+			if(username == "") {
 				alert("姓名不能为空");
 				return false;
 			} else {
-				var fot = checkusernum(usernum);
+				var fot = checkusername(username);
 				if(fot) {
 					if(sfznum == "") {
 						alert("身份证号不能为空");
@@ -145,8 +145,8 @@
 		}
 
 		function checkName() {
-			var usernum = document.getElementById("usernum").value.toUpperCase().trim();
-			if(usernum.value.match(/^[\u4e00-\u9fa5]+$/)) {
+			var username = document.getElementById("username").value.toUpperCase().trim();
+			if(username.value.match(/^[\u4e00-\u9fa5]+$/)) {
 				return true;
 			} else {
 				alert('请输入中文');
