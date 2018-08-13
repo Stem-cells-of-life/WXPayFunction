@@ -67,7 +67,7 @@ public class GetPayInfoServlet extends HttpServlet {
 		                ip = ips[0].trim();  
 		            }  
 		           
-		            fee = String.valueOf(Integer.valueOf(number)*218*100); // 卖198一盒 正式代码 单位为分
+		            fee = String.valueOf(Integer.valueOf(number)*218*100); // 卖218一盒 正式代码 单位为分
 		            String fee2 = String.valueOf(Integer.valueOf(number)*218);//显示费用
 		        	String openid =getOpenId(code);//获取OpenId
 		        	String ordernumber = getordernumber();//生成订单号
@@ -134,7 +134,7 @@ public class GetPayInfoServlet extends HttpServlet {
 			String body = "动感面膜";  //注意中文有编码问题 
 			String out_trade_no  = ordernumber;//订单号不能重复
 			String total_fee  = fee;
-			String notify_url ="203624vk44.iok.la/weixin/recellpay.do";//支付完成后的回调，不明白是干嘛的。。
+			String notify_url ="203624vk44.iok.la/weixin/recellpay.do";//支付完成后的回调
 			String trade_type  ="JSAPI"; //支付类型
 		//	String sign_type ="MD5";   //如果有问题，就把这个加上去
 			hm.put("appid",appid );
@@ -148,8 +148,8 @@ public class GetPayInfoServlet extends HttpServlet {
 			hm.put("spbill_create_ip", ip);
 			hm.put("openid", openid);
 		//	hm.put("sign_type", sign_type);
-			String sign = getSign(hm);
-			hm.put("sign", sign);
+			String sign = getSign(hm); //获取这个sign
+			hm.put("sign", sign);	   //把这个sign装进hm
 			
 			String xml = WXPayUtil.mapToXml(hm);//把封装好的map转成xml 微信提供的方法 
 		    

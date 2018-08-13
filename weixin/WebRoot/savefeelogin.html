@@ -96,16 +96,15 @@
 	</head>
 
 	<body>
-		<div style="text-align: center;font-size:6vw;margin-top:10vh;margin-bottom:10vh;">
+		<div style="text-align: center;font-size:6vw;margin-top:10vh;margin-bottom:5vh;">
 			<img alt="logo" src="img/logo.png">
 		</div>
 		<div class="banner">
-			<h2 class="name1">欢迎光临</h2>
 			<h2 class="name2">湖北省生命源干细胞有限公司</h2>
-			<h2 class="name3">自助服务</h2>
+			<h2 class="name3">冻存费自助服务</h2>
 		</div>
 		<div id="login">
-			<form action="http://localhost:8080/weixin/savefeelogin" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return sbt();">
+			<form action="https://sccbb.natappvip.cc/weixin/savefeelogin.do" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return sbt();">
 				<table>
 					<tr>
 						<td class="label">姓名：</td>
@@ -116,14 +115,13 @@
 						<td class="input"><input type="text" name="sfznum" id="sfznum" onblur="sbt()" /></td>
 					</tr>
 				</table>
-				<p id="conmit">
-					<input class="submit" type="submit" value="确认" />
-				</p>
-
+					<input class="submit" type="button" value="确认" onclick="" />
 			</form>
 		</div>
 	</body>
 	<script type="text/javascript">
+	
+	
 		function sbt() {
 			var username = document.getElementById("username").value.toUpperCase().trim();
 			var sfznum = document.getElementById("sfznum").value.trim();
