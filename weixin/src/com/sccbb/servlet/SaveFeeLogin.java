@@ -34,8 +34,8 @@ public class SaveFeeLogin extends HttpServlet {
 							String sfznum = req.getParameter("sfznum").toUpperCase().trim();
 							System.out.println(username+sfznum);
 							if(("".equals(username)||username==null)||("".equals(sfznum)||sfznum==null)||
-							(!getUserMsg(username, sfznum))){
-									req.getRequestDispatcher("erro1.html").forward(req, resp);
+								(!getUserMsg(username, sfznum))){
+								req.getRequestDispatcher("erro1.html").forward(req, resp);
 							}else{
 								req.getRequestDispatcher("success.html").forward(req, resp);
 								}
@@ -56,7 +56,7 @@ public class SaveFeeLogin extends HttpServlet {
 							if(rs.next()){
 								return true;
 								}else{
-									return false;
+								return false;
 								}
 						} catch (SQLException e) {
 							e.printStackTrace();

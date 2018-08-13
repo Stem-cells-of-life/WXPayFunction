@@ -9,7 +9,8 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
     <!-- 检测报告-->
-  <servlet>
+ 
+   <servlet>
   		<servlet-name>login</servlet-name>
   		<servlet-class>com.sccbb.servlet.login</servlet-class>
   </servlet>
@@ -18,7 +19,7 @@
   		<url-pattern>/login</url-pattern>
   </servlet-mapping>
   
-    <servlet>
+  <servlet>
   		<servlet-name>upload</servlet-name>
   		<servlet-class>com.sccbb.servlet.uploadFile</servlet-class>
   </servlet>
@@ -26,6 +27,8 @@
   		<servlet-name>upload</servlet-name>
   		<url-pattern>/upload</url-pattern>
   </servlet-mapping>
+  
+
   <!-- 微信--> 
   <servlet>
   		<servlet-name>weixinoa</servlet-name>
@@ -81,6 +84,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>savefeelogin</servlet-name>
-    <url-pattern>/savefeelogin</url-pattern>
+    <url-pattern>/savefeelogin.do</url-pattern>
   </servlet-mapping>
 </web-app>
