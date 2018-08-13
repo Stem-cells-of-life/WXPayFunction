@@ -1,17 +1,25 @@
 package com.sccbb.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONObject;
 
 import com.sccbb.dao.GetConnection;
 
@@ -32,13 +40,23 @@ public class SaveFeeLogin extends HttpServlet {
 							req.setCharacterEncoding("UTF-8");
 							String username = req.getParameter("username").toUpperCase().trim();
 							String sfznum = req.getParameter("sfznum").toUpperCase().trim();
+							
 							System.out.println(username+sfznum);
 							if(("".equals(username)||username==null)||("".equals(sfznum)||sfznum==null)||
 							(!getUserMsg(username, sfznum))){
-									req.getRequestDispatcher("erro1.html").forward(req, resp);
+								
+								responseOutWithJson(resp, "{\"errcode\":\"1\",\"errdesc\":\"用户名或者密码错误\"}");
 							}else{
-								req.getRequestDispatcher("success.html").forward(req, resp);
+								try {
+									
+									responseOutWithJson(resp, "{\"errcode\":\"0\",\"errdesc\":\"ok\",\"data\":"+SortUser.getUserList(username)+"}");
+								} catch (Exception e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
 								}
+								
+//								req.getRequestDispatcher("success.html").forward(req, resp);
+							}
 					}
 					
 							
@@ -71,4 +89,25 @@ public class SaveFeeLogin extends HttpServlet {
 						}
 						return false;
 					}
+					
+					 
+					//返回json对象
+					protected void responseOutWithJson(HttpServletResponse response,  
+					        Object responseObject) {  
+					    //将实体对象转换为JSON Object转换  
+					    JSONObject responseJSONObject = JSONObject.fromObject(responseObject);  
+					    response.setCharacterEncoding("UTF-8");  
+					    response.setContentType("application/json; charset=utf-8");  
+					    PrintWriter out = null;  
+					    try {  
+					        out = response.getWriter();  
+					        out.append(responseJSONObject.toString());  
+					    } catch (IOException e) {  
+					        e.printStackTrace();  
+					    } finally {  
+					        if (out != null) {  
+					            out.close();  
+					        }  
+					    }  
+					} 
 }
