@@ -40,19 +40,14 @@ public class ShowUserFee extends HttpServlet {
 			throws ServletException, IOException {
 		resp.setContentType("text/html; charset=UTF-8");
 		req.setCharacterEncoding("UTF-8");
-//        String username = (String) req.getAttribute("username");
-//        username=URLDecoder.decode(username, "UTF-8");
-//		
-//		String sfznum = (String) req.getAttribute("sfznum");
-//		sfznum=URLDecoder.decode(sfznum, "UTF-8");
-		
-//		System.out.println("userName:"+username);
-//		System.out.println("content:"+sfznum);
-		PrintWriter out = resp.getWriter();
-		//将数据拼接成JSON格式
-		out.print(getUserMsg("彭迎凤", "420802198608121582"));
-		out.flush();
-		out.close();
+		System.out.println(req.getParameter("username"));
+		System.out.println(req.getParameter("sfznum"));
+		req.getRequestDispatcher("/showuerfee.jsp").forward(req, resp);
+//		PrintWriter out = resp.getWriter();
+//		//将数据拼接成JSON格式
+//		out.print(getUserMsg("彭迎凤", "420802198608121582"));
+////		out.flush();
+////		out.close();
 
 	}
   //模拟用户   胡元芹    420881198304014820   "彭迎凤", "420802198608121582"
@@ -62,7 +57,16 @@ public class ShowUserFee extends HttpServlet {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		JSONArray js=null;
-		String sql = "select agreement_id,bs_agreement_0001,xy_type,bs_fee_0002,dcf,bs_agreement_0025,bs_agreement_0034,isisvalid from SCCBB_BS_TEMP_XNW where BS_AGREEMENT_0025=? and BS_AGREEMENT_0034=?";
+		String sql = "select agreement_id," +
+					 "bs_agreement_0001," +
+					 "xy_type,bs_fee_0002," +
+					 "dcf,bs_agreement_0025," +
+					 "bs_agreement_0034," +
+					 "isisvalid " +
+					 "from " +
+					 "VIEW_TEMP_XNW_wxpay " +
+					 "where " +
+					 "BS_AGREEMENT_0025=? and BS_AGREEMENT_0034=?";
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, username);

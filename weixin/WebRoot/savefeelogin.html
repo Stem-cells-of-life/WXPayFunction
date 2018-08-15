@@ -107,7 +107,7 @@
 		</div>
 		<div id="login">
 		<!-- https://sccbb.natappvip.cc/weixin/savefeelogin.do -->
-			<form id="form" action="#" method="post" enctype="application/x-www-form-urlencoded">	
+			<form id="formfee" action="/weixin/ShowUserFee" method="post" enctype="application/x-www-form-urlencoded">	
 				<table>
 					<tr>
 						<td class="label">姓名：</td>
@@ -127,7 +127,7 @@
 		function checkid(){
 			var username = document.getElementById("username").value.trim();
 			var sfznum = document.getElementById("sfznum").value.trim();
-			var form = document.getElementById("form");
+			var formfee = document.getElementById("formfee");
 			if(sbt()&&checksfznum()){
 				var ajax;
 				if (window.XMLHttpRequest){
@@ -149,7 +149,7 @@
 				  			var resObj=ajax.responseText; //json字符串用文本形式接收            
                 			var data = eval('('+resObj+')');
 				  			if(data.state=="01"){
-				  				form.submit;
+				  				formfee.submit();
 				  			}
 				  			if(data.state=="02"){
 				  				alert("姓名或身份证号错误123");
