@@ -86,4 +86,13 @@
     <servlet-name>savefeelogin</servlet-name>
     <url-pattern>/savefeelogin.do</url-pattern>
   </servlet-mapping>
+ <servlet>
+    <servlet-name>ShowUserFee</servlet-name>
+    <servlet-class>com.sccbb.servlet.ShowUserFee</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>ShowUserFee</servlet-name>
+    <url-pattern>/ShowUserFee</url-pattern>
+  </servlet-mapping>
+ 
 </web-app>
