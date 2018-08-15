@@ -23,7 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>  
   <body>  
     This is my JSP page. <br>  
-       <input type="button" value="点击获取结果" id="submit" onclick="jsonAjaxPost()">  
+       <input type="button" value="点击获取结果" id="submit" >  
+      
     <br>  
     result : 
     <div class="comment">
@@ -34,8 +35,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <table border="1" >
 		<tr>
-			<th>姓名</th>
-			<th>身份证</th>
+			<th>证件号码</th>
+			<th>上回缴纳的冻存费</th>
+			<th>客户姓名</th>
+			<th>费用到期时间</th>
+			<th>协议号</th>
+			<th>类型</th>
+			<th>协议主键</th>
+			<th>是否作废</th>
 		</tr>
 		<tbody id="table">
 		
@@ -47,20 +54,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </body>  
   <script type="text/javascript" src="<%=path%>/js/jquery-1.9.1.min.js" ></script>  
   	<script type="text/javascript">
-  	function tempsort(){
-  	var arr=[{name:"123",age:111},{name:456,age:4444}]
-  	        var str='';
-  	    for(var i=0;i<arr.length;i++){
-  	    	str+="<tr><td>"+arr[i].name+"</td><td>"+arr[i].age+"</td></tr>";
-  	    }
-  	    $("#table").html(str);
-  	}
-  	 tempsort();
+  	 //onclick="jsonAjaxPost()"
+  //	function tempsort(){
+  //var arr=[{name:"123",age:111},{name:456,age:4444}]
+  //       var str='';
+  //	    for(var i=0;i<arr.length;i++){
+  //	    	str+="<tr><td>"+arr[i].name+"</td><td>"+arr[i].age+"</td></tr>";
+  //	    }
+  //    $("#table").html(str);
+  //}
+  //	 tempsort();
 	      
 	      
 	      
 	       function jsonAjaxPost(){
-             
+               var str='';
              $.ajax({
                type:"post",//请求方式
                url:"http://localhost:8080/weixin/ShowUserFee",
@@ -70,24 +78,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                
                success:function(data){
      
-              
+                    
                 for(var i=0,l=data.length;i<l;i++){
-                       
-                       console.log( data[i].BS_AGREEMENT_0034);
-                       console.log(data[i].DCF);
-                       console.log(data[i].BS_AGREEMENT_0025);
-                       console.log(data[i].BS_FEE_0002);
-                       
-                       
-                } 
+                    str+="<tr><td>"+data[i].BS_AGREEMENT_0034+"</td><td>"+data[i].DCF+"</td><td>"+data[i].BS_AGREEMENT_0025+"</td><td>"+data[i].BS_FEE_0002+"</td><td>"+data[i].BS_AGREEMENT_0001+"</td><td>"+data[i].XY_TYPE+"</td><td>"+data[i].AGREEMENT_ID+"</td><td>"+data[i].ISISVALID+"</td></tr>";                     
+                         } 
                      
-                  $("#resultJsonText").text(
-                     
-                   
-                     
-                     
-                  
-                  );
+                   $("#table").html(str);
               },
               //请求出错的处理
               error:function(){
@@ -95,5 +91,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               }
            });
           }
+          jsonAjaxPost(); 
 	</script>
 </html>
