@@ -40,39 +40,42 @@ public class ShowUserFee extends HttpServlet {
 			throws ServletException, IOException {
 		resp.setContentType("text/html; charset=UTF-8");
 		req.setCharacterEncoding("UTF-8");
-		System.out.println(req.getParameter("username"));
-		System.out.println(req.getParameter("sfznum"));
-		req.getRequestDispatcher("/showuerfee.jsp").forward(req, resp);
-//		PrintWriter out = resp.getWriter();
-//		//将数据拼接成JSON格式
-//		out.print(getUserMsg("彭迎凤", "420802198608121582"));
-////		out.flush();
-////		out.close();
+		String username = req.getParameter("username").toString();
+		String sfznum = req.getParameter("sfznum").toString();
+		
+		List list = getUserMsg(username, sfznum);
+		req.getRequestDispatcher("/showuserfee.jsp").forward(req, resp);
 
 	}
+	
+	
+	
   //模拟用户   胡元芹    420881198304014820   "彭迎凤", "420802198608121582"
-	public static JSONArray getUserMsg(String username, String sfznum) {
+	public static List getUserMsg(String username, String sfznum) {
+		List list =null;
 		GetConnection getCon = new GetConnection();
 		Connection conn = getCon.getConnection();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		JSONArray js=null;
-		String sql = "select agreement_id," +
-					 "bs_agreement_0001," +
-					 "xy_type,bs_fee_0002," +
-					 "dcf,bs_agreement_0025," +
-					 "bs_agreement_0034," +
-					 "isisvalid " +
-					 "from " +
-					 "VIEW_TEMP_XNW_wxpay " +
-					 "where " +
-					 "BS_AGREEMENT_0025=? and BS_AGREEMENT_0034=?";
 		try {
-			ps = conn.prepareStatement(sql);
-			ps.setString(1, username);
-			ps.setString(2, sfznum);
-			rs = ps.executeQuery();
-            js=resultSetToJsonArry(rs);
+			String sql = "select " +
+						 "agreement_id," +
+						 "bs_agreement_0001," +
+						 "xy_type," +
+						 "bs_fee_0002," +
+						 "dcf," +
+						 "bs_agreement_0025," +
+						 "bs_agreement_0034," +
+						 "isisvalid " +
+						 "from " +
+						 "VIEW_TEMP_XNW_wxpay " +
+						 "where " +
+						 "BS_AGREEMENT_0025=? and BS_AGREEMENT_0034=?";
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, username);
+				ps.setString(2, sfznum);
+				rs = ps.executeQuery();
+				list = resultSetToList(rs);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -84,33 +87,27 @@ public class ShowUserFee extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		return js;
+		return list;
 	}
-public static void main(String[] args) {
-	getUserMsg("彭迎凤", "420802198608121582");
-}
+
 	// 返回json对象
-	public static JSONArray resultSetToJsonArry(ResultSet rs)
+	public static List<Map> resultSetToList(ResultSet rs)
 			throws SQLException, JSONException {
-		JSONArray array = new JSONArray();
-		ResultSetMetaData metaData = rs.getMetaData();
-		int columnCount = metaData.getColumnCount();
-		// 遍历ResultSet中的每条数据
-		while (rs.next()) {
-			JSONObject jsonObj = new JSONObject();
-			// 遍历每一列
-			for (int i = 1; i <= columnCount; i++) {
-
-				String columnName = metaData.getColumnLabel(i);
-
-				String value = rs.getString(columnName);
-
-				jsonObj.put(columnName, value);
+			List<Map> list = new ArrayList<Map>();
+			// 遍历ResultSet中的每条数据
+			while (rs.next()) {
+				// 遍历每一列
+				Map<String,String> map = new HashMap<String,String>();
+				map.put("id", rs.getString("agreement_id").toString());
+				map.put("bs_agreement_0001", rs.getString("bs_agreement_0001").toString());
+				map.put("xy_type", rs.getString("xy_type").toString());
+				map.put("dcf", rs.getString("dcf").toString());
+				map.put("bs_agreement_0025", rs.getString("bs_agreement_0025").toString());
+				map.put("bs_agreement_0034", rs.getString("bs_agreement_0034").toString());
+				map.put("isisvalid", rs.getString("isisvalid").toString());
+				System.out.println(map);
+				list.add(map);
 			}
-
-			array.add(jsonObj);
-		}
-		System.out.println(array);
-		return array;
+			return list;
 	}
 }
