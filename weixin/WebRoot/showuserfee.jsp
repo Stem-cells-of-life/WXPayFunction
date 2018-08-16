@@ -14,25 +14,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta http-equiv="cache-control" content="no-cache">  
     <meta http-equiv="expires" content="0">      
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">  
-    <meta http-equiv="description" content="This is my page">  
-   
+    <meta http-equiv="description" content="This is my page">   
   </head>  
   <body>    
-    <table border="1" >
-			<tr>
-				<th>证件号码</th>
-				<th>上回缴纳的冻存费</th>
-				<th>客户姓名</th>
-				<th>费用到期时间</th>
-				<th>协议号</th>
-				<th>类型</th>
-				<th>协议主键</th>
-				<th>是否作废</th>
+    <table>
+		<tr>
+			<th>agreement_id</th>
+			<th>bs_agreement_0001</th>
+			<th>xy_type<th>
+			<th>bs_fee_0002<th>
+			<th>dcf</th>
+			<th>bs_agreement_0025</th>
+			<th>bs_agreement_0034<th>
+			<th>isisvalid<th>
+		</tr>
+
+		<c:forEach items="${feeList}" var="list" varStatus="">
+              <tr>
+				<td>${list.agreement_id}</td><td>${list.bs_agreement_0001}</td>
+				<td>${list.xy_type}</td> <td>${list.bs_fee_0002}</td>
+				<td>${list.dcf}</td><td>${list.bs_agreement_0025}</td>
+				<td>${list.bs_agreement_0034}</td> <td>${list.isisvalid}</td>
 			</tr>
-		<tbody id="table">
-		
-		</tbody>
-    </table>
+		</c:forEach>
+</table>
+ 
+
     
 
     

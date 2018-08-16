@@ -26,7 +26,7 @@ import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 
 import com.sccbb.dao.GetConnection;
-
+//http://localhost:8080/weixin/ShowUserFee
 public class ShowUserFee extends HttpServlet {
 
 	@Override
@@ -40,10 +40,11 @@ public class ShowUserFee extends HttpServlet {
 			throws ServletException, IOException {
 		resp.setContentType("text/html; charset=UTF-8");
 		req.setCharacterEncoding("UTF-8");
-		String username = req.getParameter("username").toString();
-		String sfznum = req.getParameter("sfznum").toString();
+//		String username = req.getParameter("username").toString();
+//		String sfznum = req.getParameter("sfznum").toString();
 		
-		List list = getUserMsg(username, sfznum);
+		List list = getUserMsg("彭迎凤", "420802198608121582");
+		req.setAttribute("feeList", list);
 		req.getRequestDispatcher("/showuserfee.jsp").forward(req, resp);
 
 	}
@@ -57,6 +58,7 @@ public class ShowUserFee extends HttpServlet {
 		Connection conn = getCon.getConnection();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		Map<String,String> map ;
 		try {
 			String sql = "select " +
 						 "agreement_id," +
@@ -87,9 +89,17 @@ public class ShowUserFee extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("这是getUserMsg中的list的长度："+list.size());
+		System.out.println("这是getUserMsg中的list的长度为1的数据：："+list.get(1));
+		map=(Map<String, String>) list.get(1);
+		System.out.println("这是getUserMsg中的list的长度为1的map数据：："+map);
+		System.out.println("这是getUserMsg中的list的长度为1的map数据：："+map.get("id"));
+		
 		return list;
 	}
-
+//public static void main(String[] args) {
+//	System.out.println(getUserMsg("彭迎凤", "420802198608121582"));
+//}
 	// 返回json对象
 	public static List<Map> resultSetToList(ResultSet rs)
 			throws SQLException, JSONException {
