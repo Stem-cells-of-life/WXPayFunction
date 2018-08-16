@@ -16,7 +16,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">  
     <meta http-equiv="description" content="This is my page">   
   </head>  
-  <body>    
+  <body>  
+  <style>
+        table,table tr th, table tr td { border:1px solid #0094ff; }
+        table { width: 200px; min-height: 25px; line-height: 25px; text-align: center; border-collapse: collapse;}   
+    </style>  
     <table>
 		<tr>
 			<th>agreement_id</th>
