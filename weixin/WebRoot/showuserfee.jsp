@@ -12,14 +12,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title></title>  
     <meta http-equiv="pragma" content="no-cache">  
     <meta http-equiv="cache-control" content="no-cache">  
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
     <meta http-equiv="expires" content="0">      
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">  
     <meta http-equiv="description" content="This is my page">   
   </head>  
   <body>  
   <style>
+		  body{
+		        background:#2e8b57;
+                height:100%;
+                text-align:center;
+		        
+		  }
+
         #css_table {
-          display:table;
+        
+        background:#fff;
+              display: table;
+			   margin: 0 auto;
                    }
        .css_tr {
           
@@ -40,8 +51,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 } 
          #checkbox{
              border:0px solid #000;
+
           }    
+          .btn-submit{
+          margin-top:10px;
+          padding: 6px 30px;
+    background: white;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 1px 1px 6px 1px;
+          }
     </style>  
+<div class="wrapper">
   <div id="css_table">
      <div class="css_tr" >
            <div class="css_th" id="checkbox">确认续费项目</div>
@@ -51,6 +72,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <div class="css_th">上次冻存费</div>
            <div class="css_th">是否作废</div>
            <div class="css_th">缴费(元)</div>
+           
+           
      </div>
    <c:forEach items="${feeList}" var="list" varStatus="">
         <div class="css_tr">
@@ -72,6 +95,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
      </c:forEach>
    </div>
+</div>
+     <div class="btn-submit">提交</div>
+   
+   
  
 
     
