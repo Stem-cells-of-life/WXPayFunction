@@ -131,7 +131,7 @@ public class GetPayInfoServlet extends HttpServlet {
 			String appid =PropertiesUtil.getProperties().getProperty("APPID").toString().trim();
 			String mch_id =PropertiesUtil.getProperties().getProperty("mch_id").toString().trim();
 			String nonce_str = WXPayUtil.generateNonceStr();
-			String body = "动感面膜";  //注意中文有编码问题 
+			String body = "干细胞面膜";  //注意中文有编码问题 
 			String out_trade_no  = ordernumber;//订单号不能重复
 			String total_fee  = fee;
 			String notify_url ="203624vk44.iok.la/weixin/recellpay.do";//支付完成后的回调

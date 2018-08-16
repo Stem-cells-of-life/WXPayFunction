@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <div class="css_th">是否作废</div>
            <div class="css_th">缴费(元)</div>
      </div>
-   <c:forEach items="${feeList}" var="list" varStatus="">
+   <c:forEach items="${feeList}" var="list" >
         <div class="css_tr">
            <div class="css_th" id="checkbox">
                  <input type="checkbox" name="checkbox" value="Bike" /></p>
@@ -71,13 +71,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            </div>
         </div>
      </c:forEach>
-   </div>
- 
-
-    
-
-    
-  </body>  
+   </div>   
+</body>  
 <script type="text/javascript" src="/js/jquery-1.9.1.min.js" ></script>  
 <script type="text/javascript">
 
