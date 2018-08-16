@@ -14,25 +14,66 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta http-equiv="cache-control" content="no-cache">  
     <meta http-equiv="expires" content="0">      
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">  
-    <meta http-equiv="description" content="This is my page">  
-   
+    <meta http-equiv="description" content="This is my page">   
   </head>  
-  <body>    
-    <table border="1" >
-			<tr>
-				<th>证件号码</th>
-				<th>上回缴纳的冻存费</th>
-				<th>客户姓名</th>
-				<th>费用到期时间</th>
-				<th>协议号</th>
-				<th>类型</th>
-				<th>协议主键</th>
-				<th>是否作废</th>
-			</tr>
-		<tbody id="table">
-		
-		</tbody>
-    </table>
+  <body>  
+  <style>
+        #css_table {
+          display:table;
+                   }
+       .css_tr {
+          
+          display: table-row;
+         
+               }
+        .css_th {
+           
+           display: table-cell;
+           border:1px solid #000;
+           padding: 10px;
+                }           
+        .css_td {
+           
+           display: table-cell;
+           border:1px solid #000;
+           padding: 10px;
+                } 
+         #checkbox{
+             border:0px solid #000;
+          }    
+    </style>  
+  <div id="css_table">
+     <div class="css_tr" >
+           <div class="css_th" id="checkbox">确认续费项目</div>
+           <div class="css_th">协议号</div>
+           <div class="css_th">协议类型</div>
+           <div class="css_th">费用到期时间</div>
+           <div class="css_th">上次冻存费</div>
+           <div class="css_th">是否作废</div>
+           <div class="css_th">缴费(元)</div>
+     </div>
+   <c:forEach items="${feeList}" var="list" varStatus="">
+        <div class="css_tr">
+           <div class="css_th" id="checkbox">
+                 <input type="checkbox" name="checkbox" value="Bike" /></p>
+           </div>
+           <div class="css_td">${list.bs_agreement_0001}</div>
+           <div class="css_td">${list.xy_type}</div>
+           <div class="css_td">${list.bs_fee_0002}</div>
+           <div class="css_td">${list.dcf}</div>
+           <div class="css_td">${list.isisvalid}</div>
+           <div class="css_td" id="select">
+               <select>
+                      <option value="1">600(原价:一年)</option>
+                      <option value="5">2910(折扣93%:五年)</option>
+                      <option value="10">5580(折扣93%:十年)</option>
+               </select>
+           </div>
+        </div>
+     </c:forEach>
+   </div>
+ 
+
     
 
     
