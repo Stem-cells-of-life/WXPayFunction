@@ -42,18 +42,12 @@ public class ShowUserFee extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		System.out.println(req.getParameter("username"));
 		System.out.println(req.getParameter("sfznum"));
-		
-		String username = req.getParameter("username").toString().trim();
-		String sfznum = req.getParameter("sfznum").toString().trim();
-		
-		String msg =getUserMsg(username, sfznum).toString();
-		
-		System.out.println(msg);
-		req.getRequestDispatcher("/showuserfee.jsp").forward(req, resp);
+		req.getRequestDispatcher("/showuerfee.jsp").forward(req, resp);
 //		PrintWriter out = resp.getWriter();
+//		//将数据拼接成JSON格式
 //		out.print(getUserMsg("彭迎凤", "420802198608121582"));
-//		out.flush();
-//		out.close();
+////		out.flush();
+////		out.close();
 
 	}
   //模拟用户   胡元芹    420881198304014820   "彭迎凤", "420802198608121582"
@@ -92,7 +86,9 @@ public class ShowUserFee extends HttpServlet {
 		}
 		return js;
 	}
-	
+public static void main(String[] args) {
+	getUserMsg("彭迎凤", "420802198608121582");
+}
 	// 返回json对象
 	public static JSONArray resultSetToJsonArry(ResultSet rs)
 			throws SQLException, JSONException {
@@ -114,6 +110,7 @@ public class ShowUserFee extends HttpServlet {
 
 			array.add(jsonObj);
 		}
+		System.out.println(array);
 		return array;
 	}
 }
