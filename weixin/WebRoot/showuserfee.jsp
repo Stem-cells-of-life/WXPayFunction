@@ -19,7 +19,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>  
   <body>    
     <table border="1" >
-	   
 			<tr>
 				<th>证件号码</th>
 				<th>上回缴纳的冻存费</th>
@@ -30,7 +29,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<th>协议主键</th>
 				<th>是否作废</th>
 			</tr>
-		
 		<tbody id="table">
 		
 		</tbody>
@@ -39,45 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     
   </body>  
-  <script type="text/javascript" src="<%=path%>/js/jquery-1.9.1.min.js" ></script>  
-  	<script type="text/javascript">
-  	 //onclick="jsonAjaxPost()"
-  //	function tempsort(){
-  //var arr=[{name:"123",age:111},{name:456,age:4444}]
-  //       var str='';
-  //	    for(var i=0;i<arr.length;i++){
-  //	    	str+="<tr><td>"+arr[i].name+"</td><td>"+arr[i].age+"</td></tr>";
-  //	    }
-  //    $("#table").html(str);
-  //}
-  //	 tempsort();
-	      
-	      
-	      
-	       function jsonAjaxPost(){
-               var str='';
-             $.ajax({
-               type:"post",//请求方式
-               url:"http://localhost:8080/weixin/ShowUserFee",
-               timeout:3000,//超时时间：3秒
-               dataType:"json",//设置返回数据的格式
-               //请求成功后的回调函数 data为json格式
-               
-               success:function(data){
-     
-                    
-                for(var i=0,l=data.length;i<l;i++){
-                    str+="<tr><td>"+data[i].BS_AGREEMENT_0034+"</td><td>"+data[i].DCF+"</td><td>"+data[i].BS_AGREEMENT_0025+"</td><td>"+data[i].BS_FEE_0002+"</td><td>"+data[i].BS_AGREEMENT_0001+"</td><td>"+data[i].XY_TYPE+"</td><td>"+data[i].AGREEMENT_ID+"</td><td>"+data[i].ISISVALID+"</td></tr>";                     
-                         } 
-                     
-                   $("#table").html(str);
-              },
-              //请求出错的处理
-              error:function(){
-                        alert("请求出错");
-              }
-           });
-          }
-          jsonAjaxPost(); 
-	</script>
+<script type="text/javascript" src="<%=path%>/js/jquery-1.9.1.min.js" ></script>  
+<script type="text/javascript">
+
+</script>
 </html>
