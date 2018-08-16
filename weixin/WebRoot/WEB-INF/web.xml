@@ -86,6 +86,7 @@
     <servlet-name>savefeelogin</servlet-name>
     <url-pattern>/savefeelogin.do</url-pattern>
   </servlet-mapping>
+  
  <servlet>
     <servlet-name>ShowUserFee</servlet-name>
     <servlet-class>com.sccbb.servlet.ShowUserFee</servlet-class>
@@ -94,5 +95,25 @@
     <servlet-name>ShowUserFee</servlet-name>
     <url-pattern>/ShowUserFee</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>dcfcode</servlet-name>
+    <servlet-class>com.sccbb.servlet.DcfCodeServlet</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>dcfcode</servlet-name>
+    <url-pattern>/dcfcode.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>dcfpay</servlet-name>
+    <servlet-class>com.sccbb.servlet.DcfPayServlet</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>dcfpay</servlet-name>
+    <url-pattern>/dcfpay.do</url-pattern>
+  </servlet-mapping>
+ 
  
 </web-app>
