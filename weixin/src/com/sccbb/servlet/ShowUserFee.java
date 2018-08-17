@@ -43,7 +43,7 @@ public class ShowUserFee extends HttpServlet {
 //		String username = req.getParameter("username").toString();
 //		String sfznum = req.getParameter("sfznum").toString();
 		
-		List list = getUserMsg("彭迎凤", "420802198608121582");
+		List list = getUserMsg("吴芳", "420502198106271322");
 		req.setAttribute("feeList", list);
 		req.getRequestDispatcher("/showuserfee.jsp").forward(req, resp);
 
@@ -86,11 +86,11 @@ public class ShowUserFee extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("这是getUserMsg中的list的长度："+list.size());
-		System.out.println("这是getUserMsg中的list的长度为1的数据：："+list.get(1));
-		map=(Map<String, String>) list.get(1);
-		System.out.println("这是getUserMsg中的list的长度为1的map数据：："+map);
-		System.out.println("这是getUserMsg中的list的长度为1的map数据：："+map.get("id"));
+//		System.out.println("这是getUserMsg中的list的长度："+list.size());
+//		System.out.println("这是getUserMsg中的list的长度为1的数据：："+list.get(1));
+//		map=(Map<String, String>) list.get(1);
+//		System.out.println("这是getUserMsg中的list的长度为1的map数据：："+map);
+//		System.out.println("这是getUserMsg中的list的长度为1的map数据：："+map.get("id"));
 		
 		return list;
 	}

@@ -78,12 +78,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            
            
      </div>
-   <c:forEach items="${feeList}" var="list" varStatus="">
+   <c:forEach items="${feeList}" var="list" >
         <div class="css_tr">
            <div class="css_th" id="checkbox">
                  <input type="checkbox" name="checkbox" value="Bike" /></p>
            </div>
-           <div class="css_td">${list.bs_agreement_0001}</div>
+           <div class="css_td" id="bs_agreement_0001" name="bs_agreement_0001">${list.bs_agreement_0001}</div>
            <div class="css_td">${list.xy_type}</div>
            <div class="css_td">${list.bs_fee_0002}</div>
            <div class="css_td">${list.dcf}</div>
@@ -98,6 +98,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
      </c:forEach>
    </div>
+<<<<<<< HEAD
 </div>
      <div class="btn-submit">提交</div>
    
@@ -109,7 +110,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
   </body>  
 <script type="text/javascript" src="<%=path%>/js/jquery-1.9.1.min.js" ></script>  
+=======
+   <table>
+   <tr>
+					<td class="label">姓名：</td>
+					<td class="input"><input type="text" name="username"
+						id="username"/></td>
+	</tr>
+   </table>
+   
+				<input class="submit" id="submit" type="button" value="提交" />
+			
+      
+</body>  
+<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>  
+>>>>>>> 2cf5bafe1eb7915d14e5f75a0452399ed3811f15
 <script type="text/javascript">
-
+    $("#submit").on("click",function(){
+                  ajaxSend();
+			});
+    function ajaxSend(){
+			$.ajax({
+				url:"http://localhost:8080/weixin/dcfcode.do",
+				type:"post",
+				data:{
+					username:$("#username").val(),
+				},
+				headers:{
+					token:"admin"
+				},
+				success:function(data){
+					console.log("传入成功")
+				},
+				error:function(err){
+					console.log(err)
+				}
+			});
+		}		
 </script>
 </html>
