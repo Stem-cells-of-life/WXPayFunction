@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
   </head>  
   <body>  
-  <style>
+  <style type="text/css">
 		  body{
 		        background:#2e8b57;
                 height:100%;
@@ -64,8 +64,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     border-radius: 5px;
     box-shadow: 1px 1px 6px 1px;
           }
-    </style>  
-<div class="wrapper">
+</style>  
+<body>
   <div id="css_table">
      <div class="css_tr" >
            <div class="css_th" id="checkbox">确认续费项目</div>
@@ -89,42 +89,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <div class="css_td">${list.dcf}</div>
            <div class="css_td">${list.isisvalid}</div>
            <div class="css_td" id="select">
-               <select>
-                      <option value="1">600(原价:一年)</option>
-                      <option value="5">2910(折扣93%:五年)</option>
-                      <option value="10">5580(折扣93%:十年)</option>
-               </select>
+           <select>
+                  <option value="1">600(原价:一年)</option>
+                  <option value="5">2910(折扣93%:五年)</option>
+                  <option value="10">5580(折扣93%:十年)</option>
+           </select>
            </div>
         </div>
      </c:forEach>
    </div>
-<<<<<<< HEAD
-</div>
-     <div class="btn-submit">提交</div>
-   
-   
- 
-
-    
-
-    
-  </body>  
-<script type="text/javascript" src="<%=path%>/js/jquery-1.9.1.min.js" ></script>  
-=======
-   <table>
-   <tr>
-					<td class="label">姓名：</td>
-					<td class="input"><input type="text" name="username"
-						id="username"/></td>
-	</tr>
-   </table>
-   
-				<input class="submit" id="submit" type="button" value="提交" />
-			
-      
+	<input class="submit" id="submit" type="button" value="提交" />
 </body>  
 <script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>  
->>>>>>> 2cf5bafe1eb7915d14e5f75a0452399ed3811f15
 <script type="text/javascript">
     $("#submit").on("click",function(){
                   ajaxSend();
