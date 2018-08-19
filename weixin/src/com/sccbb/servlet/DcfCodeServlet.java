@@ -3,12 +3,16 @@ package com.sccbb.servlet;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import com.sccbb.Util.PropertiesUtil;
 
@@ -29,6 +33,7 @@ public class DcfCodeServlet extends HttpServlet {
 	        //String username = req.getParameter("username").toUpperCase().trim();
 		    //System.out.println(username);
 		    System.out.println(req.getParameter("arr"));
+		    
 //	        String appid = PropertiesUtil.getProperties().getProperty("APPID").toString().trim();
 //	        HashMap map = new HashMap();  
 //	        HttpSession session = req.getSession();
@@ -46,4 +51,5 @@ public class DcfCodeServlet extends HttpServlet {
 //	        		e.printStackTrace();
 //	        }
 		}
+		
 }
