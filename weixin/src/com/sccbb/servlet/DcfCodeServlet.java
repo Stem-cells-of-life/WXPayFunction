@@ -26,8 +26,9 @@ public class DcfCodeServlet extends HttpServlet {
 			resp.setContentType("text/html");  
 	        req.setCharacterEncoding("UTF-8");  
 	        resp.setCharacterEncoding("UTF-8");  
-	        String username = req.getParameter("username").toUpperCase().trim();
-		    System.out.println(username);
+	        //String username = req.getParameter("username").toUpperCase().trim();
+		    //System.out.println(username);
+		    System.out.println(req.getParameter("arr"));
 //	        String appid = PropertiesUtil.getProperties().getProperty("APPID").toString().trim();
 //	        HashMap map = new HashMap();  
 //	        HttpSession session = req.getSession();
