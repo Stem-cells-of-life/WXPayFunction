@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import com.sccbb.Util.JsonArray2List;
 import com.sccbb.Util.PropertiesUtil;
 
 public class DcfCodeServlet extends HttpServlet {
@@ -33,10 +32,7 @@ public class DcfCodeServlet extends HttpServlet {
 	        resp.setCharacterEncoding("UTF-8");  
 	        //String username = req.getParameter("username").toUpperCase().trim();
 		    //System.out.println(username);
-	        String arr=req.getParameter("arr").toString().trim();
-	        //通过工具类JsonArray2List将数组转换为list数组
-	        List<HashMap<String,String>> list=JsonArray2List.getOrder(arr);
-		    System.out.println(list);
+		    System.out.println(req.getParameter("arr"));
 		    
 //	        String appid = PropertiesUtil.getProperties().getProperty("APPID").toString().trim();
 //	        HashMap map = new HashMap();  

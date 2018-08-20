@@ -16,7 +16,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta http-equiv="expires" content="0">      
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">  
     <meta http-equiv="description" content="This is my page">  
-<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
   <style>
     body{
@@ -71,93 +70,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <button type="button" class="btn-submit btn btn-success" id="btnSubmit">确认付款</button>
 
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-=======
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-  </head>  
-  <body>  
-  <style type="text/css">
-		  body{
-		        background:#2e8b57;
-                height:100%;
-                text-align:center;
-		        
-		  }
-
-        #css_table {
-        
-        background:#fff;
-              display: table;
-			   margin: 0 auto;
-                   }
-       .css_tr {
-          
-          display: table-row;
-         
-               }
-        .css_th {
-           
-           display: table-cell;
-           border:1px solid #000;
-           padding: 10px;
-                }           
-        .css_td {
-           
-           display: table-cell;
-           border:1px solid #000;
-           padding: 10px;
-                } 
-         #checkbox{
-             border:0px solid #000;
-
-          }    
-          .btn-submit{
-          margin-top:10px;
-          padding: 6px 30px;
-    background: white;
-    display: inline-block;
-    border-radius: 5px;
-    box-shadow: 1px 1px 6px 1px;
-          }
-</style>  
-<body>
-  <div id="css_table">
-     <div class="css_tr" >
-           <div class="css_th" id="checkbox">确认续费项目</div>
-           <div class="css_th">协议号</div>
-           <div class="css_th">协议类型</div>
-           <div class="css_th">费用到期时间</div>
-           <div class="css_th">上次冻存费</div>
-           <div class="css_th">是否作废</div>
-           <div class="css_th">缴费(元)</div>
-           
-           
-     </div>
-   <c:forEach items="${feeList}" var="list" >
-        <div class="css_tr">
-           <div class="css_th" id="checkbox">
-                 <input type="checkbox" name="checkbox" value="Bike" /></p>
-           </div>
-           <div class="css_td" id="bs_agreement_0001" name="bs_agreement_0001">${list.bs_agreement_0001}</div>
-           <div class="css_td">${list.xy_type}</div>
-           <div class="css_td">${list.bs_fee_0002}</div>
-           <div class="css_td">${list.dcf}</div>
-           <div class="css_td">${list.isisvalid}</div>
-           <div class="css_td" id="select">
-           <select>
-                  <option value="1">600(原价:一年)</option>
-                  <option value="5">2910(折扣93%:五年)</option>
-                  <option value="10">5580(折扣93%:十年)</option>
-           </select>
-           </div>
-        </div>
-     </c:forEach>
-   </div>
-	<input class="submit" id="submit" type="button" value="提交" />
-</body>  
-<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>  
->>>>>>> f44091e088e3ed5b593d76c5f47fc72d425a8071
 <script type="text/javascript">
 
   //获取选中的 checkbox的值
