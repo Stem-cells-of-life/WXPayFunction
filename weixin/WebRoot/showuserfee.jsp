@@ -105,13 +105,11 @@ margin-top:10px;
 							bs_agreement_0001 : $(this).parent().siblings().eq(
 									0).html(),
 							xy_type : $(this).parent().siblings().eq(1).html(),
-							bs_fee_0002 : $(this).parent().siblings().eq(2)
-									.html(),
-							// dcf:$(this).parent().siblings().eq(3).html(), 
-							// isisvalid:$(this).parent().siblings().eq(4).html(), 
-							//priceselect:$(this).parent().siblings().eq(5).html()
-							priceselect : $(this).parent().siblings().eq(3)
-									.find("option:selected").val()
+							bs_fee_0002 : $(this).parent().siblings().eq(2).html(),
+							dcf:$(this).parent().siblings().eq(3).html(), 
+							isisvalid:$(this).parent().siblings().eq(4).html(), 
+							priceselect:$(this).parent().siblings().eq(5).html(),
+							priceselect : $(this).parent().siblings().eq(3).find("option:selected").val()
 						})
 
 					});
@@ -165,7 +163,7 @@ margin-top:10px;
 			getTotalFee(getCheckedValues()); //绑定显示金额
 		});
 		$(".priceselect").on("change", function() { //点击下拉框付款提交数据
-			console.log(11111111111111)
+		//	console.log(11111111111111)
 			getTotalFee(getCheckedValues());
 		});
 
