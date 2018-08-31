@@ -25,3 +25,5 @@
 hs_err_pid*
 weixin/.classpath
 weixin/.mymetadata
+
+weixin/WebRoot/showuserfee.jsp
