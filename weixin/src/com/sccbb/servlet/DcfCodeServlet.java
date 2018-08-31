@@ -35,8 +35,8 @@ public class DcfCodeServlet extends HttpServlet {
 		    //System.out.println(username);
 	        String arr=req.getParameter("arr").toString().trim();
 	        //通过工具类JsonArray2List将数组转换为list数组
-	        List<HashMap<String,String>> list=JsonArray2List.getOrder(arr);
-		    System.out.println(list);
+//	        List<HashMap<String,String>> list=JsonArray2List.getOrder(arr);
+//		    System.out.println(list);
 		    
 //	        String appid = PropertiesUtil.getProperties().getProperty("APPID").toString().trim();
 //	        HashMap map = new HashMap();  

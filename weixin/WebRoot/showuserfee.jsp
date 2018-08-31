@@ -47,10 +47,8 @@ margin-top:10px;
 		<img class="logo" src="img/logo.png" />
 	</div>
 	<div class="banner">
-					<h2 class="name1">欢迎光临</h2>
-					<h2 class="name2">湖北省生命源干细胞有限公司</h2>
 					<h2 class="name3">自助服务</h2>
-		</div>
+	</div>
 	<div class="table-responsive">
 		<table
 			class="table table-striped table-bordered table-hover table-condensed">
@@ -72,11 +70,13 @@ margin-top:10px;
 					<td class="css_td">${list.bs_fee_0002}</td>
 					<!-- <td class="css_td">${list.dcf}</td>  -->
 					<!-- <td class="css_td">${list.isisvalid}</td> -->
-					<td class="css_td" id="select"><select class="priceselect">
+					<td class="css_td" id="select">
+						<select class="priceselect">
 							<option value="600">600(原价:一年)</option>
 							<option value="2910">2910(折扣93%:五年)</option>
 							<option value="5580">5580(折扣93%:十年)</option>
-					</select></td>
+						</select>
+					</td>
 				</tr>
 			</c:forEach>
 			<tr>
@@ -87,10 +87,6 @@ margin-top:10px;
 		</table>
 	</div>
 
-
-
-
-
 	<button type="button" class="btn-submit btn btn-success" id="btnSubmit">确认付款</button>
 
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
@@ -99,11 +95,9 @@ margin-top:10px;
 		function getCheckedValues() {
 			var arr = [];
 			$("input[type='checkbox']:checked").not("#checkAll").each(
-					function(index, item) {//
-
+					function(index, item) {
 						arr.push({
-							bs_agreement_0001 : $(this).parent().siblings().eq(
-									0).html(),
+							bs_agreement_0001 : $(this).parent().siblings().eq(0).html(),
 							xy_type : $(this).parent().siblings().eq(1).html(),
 							bs_fee_0002 : $(this).parent().siblings().eq(2).html(),
 							dcf:$(this).parent().siblings().eq(3).html(), 
@@ -162,8 +156,8 @@ margin-top:10px;
 
 			getTotalFee(getCheckedValues()); //绑定显示金额
 		});
+		
 		$(".priceselect").on("change", function() { //点击下拉框付款提交数据
-		//	console.log(11111111111111)
 			getTotalFee(getCheckedValues());
 		});
 
@@ -176,7 +170,7 @@ margin-top:10px;
 				url : "http://localhost:8080/weixin/dcfcode.do",
 				type : "post",
 				data : {
-					arr : JSON.stringify(getCheckedValues())
+						arr : JSON.stringify(getCheckedValues())
 				},
 				success : function(data) {
 					console.log(data)

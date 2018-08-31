@@ -85,18 +85,10 @@ public class ShowUserFee extends HttpServlet {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		}
-//		System.out.println("这是getUserMsg中的list的长度："+list.size());
-//		System.out.println("这是getUserMsg中的list的长度为1的数据：："+list.get(1));
-//		map=(Map<String, String>) list.get(1);
-//		System.out.println("这是getUserMsg中的list的长度为1的map数据：："+map);
-//		System.out.println("这是getUserMsg中的list的长度为1的map数据：："+map.get("id"));
-		
+		}		
 		return list;
 	}
-//public static void main(String[] args) {
-//	System.out.println(getUserMsg("彭迎凤", "420802198608121582"));
-//}
+
 	// 返回json对象
 	public static List<Map> resultSetToList(ResultSet rs)
 			throws SQLException, JSONException {
@@ -105,7 +97,7 @@ public class ShowUserFee extends HttpServlet {
 			while (rs.next()) {
 				// 遍历每一列
 				Map<String,String> map = new HashMap<String,String>();
-//				map.put("id", rs.getString("agreement_id").toString());
+				map.put("id", rs.getString("agreement_id").toString());
 				map.put("bs_agreement_0001", rs.getString("bs_agreement_0001").toString());
 				map.put("xy_type", rs.getString("xy_type").toString());
 				map.put("dcf", rs.getString("dcf").toString());
@@ -113,7 +105,6 @@ public class ShowUserFee extends HttpServlet {
 //				map.put("bs_agreement_0025", rs.getString("bs_agreement_0025").toString());
 //				map.put("bs_agreement_0034", rs.getString("bs_agreement_0034").toString());
 				map.put("isisvalid", rs.getString("isisvalid").toString());
-				System.out.println(map);
 				list.add(map);
 			}
 			return list;
