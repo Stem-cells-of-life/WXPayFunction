@@ -31,17 +31,15 @@ public class DcfCodeServlet extends HttpServlet {
 			resp.setContentType("text/html");  
 	        req.setCharacterEncoding("UTF-8");  
 	        resp.setCharacterEncoding("UTF-8");  
-	        //String username = req.getParameter("username").toUpperCase().trim();
-		    //System.out.println(username);
 	        String arr=req.getParameter("arr").toString().trim();
-	        //通过工具类JsonArray2List将数组转换为list数组
-//	        List<HashMap<String,String>> list=JsonArray2List.getOrder(arr);
-//		    System.out.println(list);
+	        System.out.println("进入");
+	        System.out.println(arr);
+	        req.getSession().setAttribute("arr", arr);
 		    
 //	        String appid = PropertiesUtil.getProperties().getProperty("APPID").toString().trim();
 //	        HashMap map = new HashMap();  
 //	        HttpSession session = req.getSession();
-	        
+//	        
 //	        try{
 //		        String redirect_uri=URLEncoder.encode("http://203624vk44.iok.la/weixin/dcfpay.do", "UTF-8");
 //		        StringBuffer url = new StringBuffer("https://open.weixin.qq.com/connect/oauth2/authorize?" +
@@ -54,6 +52,7 @@ public class DcfCodeServlet extends HttpServlet {
 //	        }catch (Exception e) {
 //	        		e.printStackTrace();
 //	        }
+	        
 		}
 		
 }

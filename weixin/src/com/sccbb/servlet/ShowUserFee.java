@@ -61,6 +61,7 @@ public class ShowUserFee extends HttpServlet {
 		Map<String,String> map ;
 		try {
 			String sql = "select " +
+						 "agreement_id,"+
 						 "bs_agreement_0001," +       //协议号
 						 " case xy_type  when '01' then '脐血协议' when '02' then '脐带协议' when '04' then '胎盘协议'  else '其他' end xy_type," +    //协议类型
 						 "to_char(bs_fee_0002,'yyyy-mm-dd') bs_fee_0002," +                             //费用到期时间
@@ -89,7 +90,6 @@ public class ShowUserFee extends HttpServlet {
 		return list;
 	}
 
-	// 返回json对象
 	public static List<Map> resultSetToList(ResultSet rs)
 			throws SQLException, JSONException {
 			List<Map> list = new ArrayList<Map>();

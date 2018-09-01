@@ -21,7 +21,11 @@ public class DcfPayServlet extends HttpServlet {
 			resp.setContentType("text/html");  
 	        req.setCharacterEncoding("UTF-8");  
 	        resp.setCharacterEncoding("UTF-8");  
+	        String arr = req.getSession().getAttribute("arr").toString();
 			String code = req.getParameter("code").toString();
+			
+			System.out.println(arr);
+			System.out.println(code);
 			
         	//spbill_create_ip 获取请求方的ip 
             String ip  =req.getHeader("x-forwarded-for");
