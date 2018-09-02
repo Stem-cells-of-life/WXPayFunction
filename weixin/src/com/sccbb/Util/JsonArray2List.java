@@ -8,6 +8,8 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 public class JsonArray2List {
+	
+	
 	public static List<HashMap<String,String>> getOrder(String jsonArray) {
 		List<HashMap<String,String>>res = new ArrayList<HashMap<String,String>>();
 		if(jsonArray==null||jsonArray.equals("")||!jsonArray.startsWith("[")||!jsonArray.endsWith("]")){

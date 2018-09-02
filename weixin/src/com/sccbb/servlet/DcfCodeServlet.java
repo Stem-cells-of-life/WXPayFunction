@@ -35,23 +35,20 @@ public class DcfCodeServlet extends HttpServlet {
 	        String total = req.getParameter("total").toString().trim();
 	        req.getSession().setAttribute("arr", arr);
 	        req.getSession().setAttribute("total", total);	        
-//	        String appid = PropertiesUtil.getProperties().getProperty("APPID").toString().trim();
-//	        HashMap map = new HashMap();  
-//	        HttpSession session = req.getSession();
-//	        
-//	        try{
-//		        String redirect_uri=URLEncoder.encode("http://203624vk44.iok.la/weixin/dcfpay.do", "UTF-8");
-//		        StringBuffer url = new StringBuffer("https://open.weixin.qq.com/connect/oauth2/authorize?" +
-//	        		"appid="+appid+
-//	        		"&redirect_uri=" +redirect_uri+
-//	        		"&response_type=code" +
-//	        		"&scope=snsapi_base" +
-//	        		"&state=ok#wechat_redirect");
-//				    resp.sendRedirect(url.toString());
-//	        }catch (Exception e) {
-//	        		e.printStackTrace();
-//	        }
-	        resp.sendRedirect("dcfpay.do");
+	        String appid = PropertiesUtil.getProperties().getProperty("APPID").toString().trim();
+	   
+	        try{
+		        String redirect_uri=URLEncoder.encode("http://203624vk44.iok.la/weixin/dcfpay.do", "UTF-8");
+		        StringBuffer url = new StringBuffer("https://open.weixin.qq.com/connect/oauth2/authorize?" +
+	        		"appid="+appid+
+	        		"&redirect_uri=" +redirect_uri+
+	        		"&response_type=code" +
+	        		"&scope=snsapi_base" +
+	        		"&state=ok#wechat_redirect");
+				    resp.sendRedirect(url.toString());
+	        }catch (Exception e) {
+	        		e.printStackTrace();
+	        }
 		}
 		
 }

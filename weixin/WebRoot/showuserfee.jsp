@@ -47,7 +47,7 @@ margin-top:10px;
 		<img class="logo" src="img/logo.png" />
 	</div>
 	<div class="banner">
-					<h2 class="name3">自助服务</h2>
+					<h2 class="name3">冻存费续费自助服务</h2>
 	</div>
 	<div class="table-responsive">
 		<table
@@ -87,7 +87,9 @@ margin-top:10px;
 			</tr>
 		</table>
 	</div>
-
+	
+	<p id="basePath" style="display: none;"><%=basePath %></p>
+	
 	<button type="button" class="btn-submit btn btn-success" id="btnSubmit">确认付款</button>
 
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
@@ -106,6 +108,7 @@ margin-top:10px;
 						});
 
 					});
+				
 			return arr;
 		}
 
@@ -163,8 +166,10 @@ margin-top:10px;
 		});
 
 		function ajaxSend() {
+			var basePath = $("#basePath").html();
+			alert(basePath);
 			$.ajax({
-				url : "http://localhost:8080/weixin/dcfcode.do",
+				url :basePath+"dcfcode.do",
 				type : "post",
 				data : {
 						arr : JSON.stringify(getCheckedValues()),
