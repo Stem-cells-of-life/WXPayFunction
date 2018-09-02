@@ -32,10 +32,9 @@ public class DcfCodeServlet extends HttpServlet {
 	        req.setCharacterEncoding("UTF-8");  
 	        resp.setCharacterEncoding("UTF-8");  
 	        String arr=req.getParameter("arr").toString().trim();
-	        System.out.println("进入");
-	        System.out.println(arr);
+	        String total = req.getParameter("total").toString().trim();
 	        req.getSession().setAttribute("arr", arr);
-		    
+	        req.getSession().setAttribute("total", total);	        
 //	        String appid = PropertiesUtil.getProperties().getProperty("APPID").toString().trim();
 //	        HashMap map = new HashMap();  
 //	        HttpSession session = req.getSession();
@@ -52,7 +51,7 @@ public class DcfCodeServlet extends HttpServlet {
 //	        }catch (Exception e) {
 //	        		e.printStackTrace();
 //	        }
-	        
+	        resp.sendRedirect("dcfpay.do");
 		}
 		
 }

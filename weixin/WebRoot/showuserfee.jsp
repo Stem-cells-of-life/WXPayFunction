@@ -65,6 +65,7 @@ margin-top:10px;
 				<tr class="css_tr">
 					<td class="css_tr_th" id="checkbox"><input type="checkbox"
 						name="checkbox" /></td>
+					<td class="css_td" style="display: none;">${list.id }</td>
 					<td class="css_td" id="bs_agreement_0001" name="bs_agreement_0001">${list.bs_agreement_0001}</td>
 					<td class="css_td">${list.xy_type}</td>
 					<td class="css_td">${list.bs_fee_0002}</td>
@@ -97,16 +98,14 @@ margin-top:10px;
 			$("input[type='checkbox']:checked").not("#checkAll").each(
 					function(index, item) {
 						arr.push({
-							bs_agreement_0001 : $(this).parent().siblings().eq(0).html(),
-							xy_type : $(this).parent().siblings().eq(1).html(),
-							bs_fee_0002 : $(this).parent().siblings().eq(2).html(),
-							//dcf : $(this).parent().siblings().eq(3).html(), 
-							//isisvalid:$(this).parent().siblings().eq(4).html(), 
-							priceselect : $(this).parent().siblings().eq(3).find("option:selected").val()
+							id :  $(this).parent().siblings().eq(0).html(),
+							bs_agreement_0001 : $(this).parent().siblings().eq(1).html(),
+							xy_type : $(this).parent().siblings().eq(2).html(),
+							bs_fee_0002 : $(this).parent().siblings().eq(3).html(),
+							priceselect : $(this).parent().siblings().eq(4).find("option:selected").val()
 						});
 
 					});
-			console.log(arr);
 			return arr;
 		}
 
@@ -130,7 +129,6 @@ margin-top:10px;
 			for ( var i = 0; i < arr.length; i++) {
 				sum += Number(arr[i].priceselect);
 			}
-			console.log(sum);
 			$("#money").html(sum + "元");
 			return sum;
 		}
@@ -143,7 +141,7 @@ margin-top:10px;
 
 			checkedBox.each(function() {
 				if ($(this).prop("checked") == true) {
-					arr++
+					arr++;
 				}
 				if (arr == len) {
 					$("#checkAll").prop("checked", true)
@@ -151,7 +149,7 @@ margin-top:10px;
 					$("#checkAll").prop("checked", false)
 				}
 
-			})
+			});
 
 			getTotalFee(getCheckedValues()); //绑定显示金额
 		});
@@ -169,10 +167,11 @@ margin-top:10px;
 				url : "http://localhost:8080/weixin/dcfcode.do",
 				type : "post",
 				data : {
-						arr : JSON.stringify(getCheckedValues())
+						arr : JSON.stringify(getCheckedValues()),
+						total : JSON.stringify(getTotalFee(getCheckedValues()))
 				},
 				success : function(data) {
-					console.log(data)
+					alert(data);
 				},
 				error : function(err) {
 					console.log(err)
