@@ -33,7 +33,7 @@ public class PropertiesUtil {
     	try {
 	        properties = new Properties();
 	        Reader in;
-	        inputFile = new FileInputStream(GetConnection.class.getResource("/")
+	        inputFile = new FileInputStream(PropertiesUtil.class.getResource("/")
        			 .getPath() + "com/sccbb/Util/PropertiesUtil.properties");
             //load方法 从.properties属性文件对应的文件输入流中，加载属性列表到Properties类对象
             properties.load(inputFile);
@@ -51,13 +51,7 @@ public class PropertiesUtil {
   			String appid = PropertiesUtil.getProperties().getProperty("APPID").toString().trim();
   			String secret = PropertiesUtil.getProperties().getProperty("SECRET").toString().trim();
   			try{
-  						/*测试号
-  		    			 * appid = wxce126f5a1a10ea21
-  		    			 * secret = 1cf09e81f1de7fccf2ef61e5ffed7f64
-  		    			 *  正是号
-  		    			 *  appid = wxfe7cdb7a0ac5894f
-  		    			 *  secret = c6a5488b81b958000f103042c5e0bdf3
-  		    			 */ 
+  						
   				        URL url = new URL("https://api.weixin.qq.com/sns/oauth2/access_token?" +
   				        		"appid=" +appid+
   				        		"&secret=" +secret+

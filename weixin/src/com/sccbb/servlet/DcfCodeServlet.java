@@ -36,6 +36,7 @@ public class DcfCodeServlet extends HttpServlet {
 	        req.getSession().setAttribute("arr", arr);
 	        req.getSession().setAttribute("total", total);
 	        
+	        //scope=snsapi_base snsapi_userinfo
 	        String appid = PropertiesUtil.getProperties().getProperty("APPID").toString().trim();
 	        try{
 		        String redirect_uri=URLEncoder.encode("http://203624vk44.iok.la/weixin/dcfpay.do", "UTF-8");
