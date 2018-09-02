@@ -20,7 +20,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-		<!-- 传过来一个list -->
-		<!-- 展示这个list -->
+		
   </body>
 </html>

@@ -50,7 +50,7 @@ public class DcfPayServlet extends HttpServlet {
                 ip = ips[0].trim();  
             } 
             
-//            String openid = PropertiesUtil.getOpenId(code);
+            String openid = PropertiesUtil.getOpenId(code);
             req.getRequestDispatcher("/dcfmsg.jsp").forward(req, resp);
 		}
 }
