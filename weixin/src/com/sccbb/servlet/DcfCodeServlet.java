@@ -34,9 +34,9 @@ public class DcfCodeServlet extends HttpServlet {
 	        String arr=req.getParameter("arr").toString().trim();
 	        String total = req.getParameter("total").toString().trim();
 	        req.getSession().setAttribute("arr", arr);
-	        req.getSession().setAttribute("total", total);	        
+	        req.getSession().setAttribute("total", total);
+	        
 	        String appid = PropertiesUtil.getProperties().getProperty("APPID").toString().trim();
-	   
 	        try{
 		        String redirect_uri=URLEncoder.encode("http://203624vk44.iok.la/weixin/dcfpay.do", "UTF-8");
 		        StringBuffer url = new StringBuffer("https://open.weixin.qq.com/connect/oauth2/authorize?" +
@@ -45,7 +45,7 @@ public class DcfCodeServlet extends HttpServlet {
 	        		"&response_type=code" +
 	        		"&scope=snsapi_base" +
 	        		"&state=ok#wechat_redirect");
-				    resp.sendRedirect(url.toString());
+	            	resp.sendRedirect(url.toString());
 	        }catch (Exception e) {
 	        		e.printStackTrace();
 	        }

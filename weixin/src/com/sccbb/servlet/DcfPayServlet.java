@@ -27,13 +27,12 @@ public class DcfPayServlet extends HttpServlet {
 	        resp.setCharacterEncoding("UTF-8");  
 	        PrintWriter pw = null;
 	        String arr = req.getSession().getAttribute("arr").toString();
-//			String code = req.getParameter("code").toString();
+			String code = req.getParameter("code").toString();
 			String total = req.getSession().getAttribute("total").toString();
 			System.out.println("进入dcfpay");
 			System.out.println(arr);
+			System.out.println(code);
 			System.out.println(total);
-			
-//			System.out.println(code);
 			
 //        	spbill_create_ip 获取请求方的ip
             String ip  =req.getHeader("x-forwarded-for");
@@ -51,16 +50,7 @@ public class DcfPayServlet extends HttpServlet {
                 ip = ips[0].trim();  
             } 
             
-//            PropertiesUtil.getOpenId(code);
-            
-            try{
-				 pw = resp.getWriter();
-				 pw.write("01");
-			 }catch (Exception e) {
-				 e.printStackTrace();
-			 }finally{
-				 pw.flush();
-				 pw.close();
-			 }
+            String openid = PropertiesUtil.getOpenId(code);
+            req.getRequestDispatcher("/dcfmsg.jsp").forward(req, resp);
 		}
 }

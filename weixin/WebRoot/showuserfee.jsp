@@ -89,9 +89,12 @@ margin-top:10px;
 	</div>
 	
 	<p id="basePath" style="display: none;"><%=basePath %></p>
+	<form id="jsonform" action="/weixin/dcfcode.do" method="post" enctype="application/x-www-form-urlencoded">
+		<input id="data4json" name="arr" style="display: none;"/>
+		<input id="total4json" name="total" style="display: none;"/>
+		<button type="button" class="btn-submit btn btn-success" id="btnSubmit">确认付款</button>
+	</form>
 	
-	<button type="button" class="btn-submit btn btn-success" id="btnSubmit">确认付款</button>
-
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript">
 		//获取选中的 checkbox的值
@@ -106,9 +109,7 @@ margin-top:10px;
 							bs_fee_0002 : $(this).parent().siblings().eq(3).html(),
 							priceselect : $(this).parent().siblings().eq(4).find("option:selected").val()
 						});
-
 					});
-				
 			return arr;
 		}
 
@@ -162,26 +163,30 @@ margin-top:10px;
 		});
 
 		$("#btnSubmit").click(function() { //点击确认付款提交数据
-			ajaxSend();
+			var jsonform = $("#jsonform");
+			var data4json = JSON.stringify(getCheckedValues());
+			var total = JSON.stringify(getTotalFee(getCheckedValues()));
+			$("#data4json").attr("value",data4json);
+			$("#total4json").attr("value",total);
+			jsonform.submit();
 		});
 
-		function ajaxSend() {
-			var basePath = $("#basePath").html();
-			alert(basePath);
-			$.ajax({
-				url :basePath+"dcfcode.do",
-				type : "post",
-				data : {
-						arr : JSON.stringify(getCheckedValues()),
-						total : JSON.stringify(getTotalFee(getCheckedValues()))
-				},
-				success : function(data) {
-					alert(data);
-				},
-				error : function(err) {
-					console.log(err)
-				}
-			});
-		}
+		//function ajaxSend() {
+		//	var basePath = $("#basePath").html();
+		//	$.ajax({
+		//		url :basePath+"dcfcode.do",
+		//		type : "post",
+		//		data : {
+		//				arr : JSON.stringify(getCheckedValues()),
+		//				total : JSON.stringify(getTotalFee(getCheckedValues()))
+		//		},
+		//		success : function(data) {
+		//			alert(data);
+		//		},
+		//		error : function(err) {
+		//			console.log(err)
+		//		}
+		//	});
+		//}
 	</script>
 </html>

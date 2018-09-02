@@ -20,6 +20,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   	<p>冻存费信息jsp</p>
+		
   </body>
 </html>
