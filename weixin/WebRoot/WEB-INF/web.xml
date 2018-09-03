@@ -110,9 +110,18 @@
     <servlet-name>dcfpay</servlet-name>
     <servlet-class>com.sccbb.servlet.DcfPayServlet</servlet-class>
   </servlet>
- <servlet-mapping>
+   <servlet-mapping>
     <servlet-name>dcfpay</servlet-name>
     <url-pattern>/dcfpay.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>TestServlet</servlet-name>
+    <servlet-class>com.sccbb.servlet.TestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestServlet</servlet-name>
+    <url-pattern>/TestServlet</url-pattern>
   </servlet-mapping>
  
  
