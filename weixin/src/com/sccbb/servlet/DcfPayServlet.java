@@ -35,13 +35,11 @@ public class DcfPayServlet extends HttpServlet {
 	        String arr = req.getSession().getAttribute("arr").toString();
 			String code = req.getParameter("code").toString();
 			String total = req.getSession().getAttribute("total").toString();
-			System.out.println("进入dcfpay");
+//			System.out.println("进入dcfpay");
 //			System.out.println(arr);
 //			System.out.println(code);
 //			System.out.println(total);
-			
-			
-			
+
 //        	spbill_create_ip 获取请求方的ip
 			try {
 	            String ip  =req.getHeader("x-forwarded-for");
@@ -136,7 +134,6 @@ public class DcfPayServlet extends HttpServlet {
 		
 		//sign 算法
 		public String getSign (Map<String,String> data) throws Exception{
-			// api密钥 公众号里面设置的   s1LJrq1rCAI7APV3ZZfUlj1SLEoFjtiQ
 			String key =PropertiesUtil.getProperties().getProperty("key").trim();
 			String sign = WXPayUtil.generateSignature(data, key);
 			return sign;

@@ -43,8 +43,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<button onclick="pay()">付钱</button>
  		</div>
   </body>
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
   <script type="text/javascript">
-  	 function pay(){
+  	function pay(){
         	if (typeof WeixinJSBridge == "undefined"){
 		           	if (document.addEventListener){
 		                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
@@ -72,20 +73,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     "signType":"MD5",
                     "paySign":paySign
                 },
-            function(res){
-      					
-                if(res.err_msg == "get_brand_wcpay_request:ok" ) {
-                    alert("支付成功");
-                   	//location.href="./payafter.do?"+parm+"&state=01";
-                }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
-                   	alert("支付取消");
-                 	//location.href="./payafter.do?"+parm+"&state=02";
-                }else if(res.err_msg =="get_brand_wcpay_request:fail"){
-                	alert("支付失败");
-                	//location.href="./payafter.do?"+parm+"&state=03";
-                }
-            }
-        );
+            	function(res){
+	                if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+	                    alert("支付成功");
+	                   	//location.href="./payafter.do?"+parm+"&state=01";
+	                }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
+	                   	alert("支付取消");
+	                 	//location.href="./payafter.do?"+parm+"&state=02";
+	                }else if(res.err_msg =="get_brand_wcpay_request:fail"){
+	                	alert("支付失败");
+	                	//location.href="./payafter.do?"+parm+"&state=03";
+	                }
+	            }
+        	);
     }
   
   </script>
