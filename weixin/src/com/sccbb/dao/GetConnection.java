@@ -24,6 +24,7 @@ public class GetConnection {
 					pro = new Properties();	
 		        	inputFile = new FileInputStream(GetConnection.class.getResource("/")
 		        			 .getPath() + "com/sccbb/dao/db.properties");//这个路径有点讲究
+		        	
 		            //load方法 从.properties属性文件对应的文件输入流中，加载属性列表到Properties类对象
 		        	pro.load(inputFile);
 		        	driver = pro.getProperty("jdbc.driver");

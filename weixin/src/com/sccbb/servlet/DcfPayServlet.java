@@ -76,8 +76,9 @@ public class DcfPayServlet extends HttpServlet {
 	        	req.setAttribute("signType", payMap.get("signType"));
 	        	req.setAttribute("paySign", paySign);
 				
-			} catch (Exception e) {
-				e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();
+				
 			}
             req.getRequestDispatcher("/dcfmsg.jsp").forward(req, resp);
 		}
