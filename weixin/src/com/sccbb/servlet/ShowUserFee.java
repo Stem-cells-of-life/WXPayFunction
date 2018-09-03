@@ -40,10 +40,11 @@ public class ShowUserFee extends HttpServlet {
 			throws ServletException, IOException {
 		resp.setContentType("text/html; charset=UTF-8");
 		req.setCharacterEncoding("UTF-8");
-//		String username = req.getParameter("username").toString();
-//		String sfznum = req.getParameter("sfznum").toString();
+		String username = req.getParameter("username").toString();
+		String sfznum = req.getParameter("sfznum").toString();
+		//"420502198106271322" 吴芳
 		
-		List list = getUserMsg("吴芳", "420502198106271322");
+		List list = getUserMsg(username, sfznum);
 		req.setAttribute("feeList", list);
 		req.getRequestDispatcher("/showuserfee.jsp").forward(req, resp);
 

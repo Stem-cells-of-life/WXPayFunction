@@ -76,7 +76,9 @@ public class GetPayInfoServlet extends HttpServlet {
 		//			session.setAttribute("money", fee);//保存实际支付金额，单位为分
 		
 		        	Map<String,String>  payMap = getPayMap(prepay_id);
+		        	
 		        	String paySign = getSign(payMap);//获取签名
+		        	
 		        	req.setAttribute("appId", payMap.get("appId"));
 		        	req.setAttribute("timeStamp", payMap.get("timeStamp"));
 		        	req.setAttribute("nonceStr", payMap.get("nonceStr"));
