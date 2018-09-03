@@ -1,8 +1,12 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
+	contentType="text/html; charset=UTF-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -21,6 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			margin: 0;
 			padding: 0;
 		}
+		 table,table tr th, table tr td { border:1px solid #0094ff; }
 		
 		div{
 			text-align: center;
@@ -34,7 +39,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 		<!-- 传过来一个list -->
 		<!-- 展示这个list -->
-		<div>
+		<table align="center">
+			<tr>
+				<th style="display: none;">id</th>
+				<th>协议号</th>
+				<th>协议类型</th>
+				<th>到期时间</th>
+				<th>缴费(元)</th>
+			</tr>
+			<c:forEach items="${arrList}" var="list">
+				<tr class="css_tr">
+					<td class="css_td" style="display: none;">${list.id }</td>
+					<td class="css_td" id="bs_agreement_0001" name="bs_agreement_0001">${list.bs_agreement_0001}</td>
+					<td class="css_td">${list.xy_type}</td>
+					<td class="css_td">${list.bs_fee_0002}</td>
+					<td class="css_td">${list.priceselect}</td>
+				</tr>
+			</c:forEach>
+			<tr>
+				<td>合计：</td>
+				<td colspan="5"><span id="money">${total}</span>
+				</td>
+			</tr>
+		</table>
+		
+		
+		<div  id="footer">
 			<input type="hidden" name="appId" value="${appId}">
 			<input type="hidden" name="nonceStr" value="${nonceStr}">
 			<input type="hidden" name="prepayId" value="${prepayId}">
@@ -42,6 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input type="hidden" name="timeStamp" value="${timeStamp}">
 			<button onclick="pay()">付钱</button>
  		</div>
+ 		
   </body>
   <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
   <script type="text/javascript">

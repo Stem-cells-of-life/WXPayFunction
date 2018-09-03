@@ -36,6 +36,9 @@ public class DcfPayServlet extends HttpServlet {
 	        String arr = req.getSession().getAttribute("arr").toString();
 			String code = req.getParameter("code").toString();
 			String total = req.getSession().getAttribute("total").toString();
+			List<Map<String,String>> arrList =JsonArray2List.getJsonListByString(arr);
+			req.setAttribute("arr", arr);
+			req.setAttribute("total", total);
 //			System.out.println("进入dcfpay");
 //			System.out.println(arr);
 //			System.out.println(code);
@@ -57,10 +60,7 @@ public class DcfPayServlet extends HttpServlet {
 	                String[] ips = ip.split(",");  
 	                ip = ips[0].trim();  
 	            } 
-	            
-	            List list = JsonArray2List.getJsonListByString(arr);
-	            
-	            req.setAttribute("list", list);
+	           
 	            
 	            String openid = PropertiesUtil.getOpenId(code);//获取openid
 	            System.out.println(openid);
