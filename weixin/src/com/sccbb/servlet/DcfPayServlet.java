@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -56,6 +57,10 @@ public class DcfPayServlet extends HttpServlet {
 	                String[] ips = ip.split(",");  
 	                ip = ips[0].trim();  
 	            } 
+	            
+	            List list = JsonArray2List.getJsonListByString(arr);
+	            
+	            req.setAttribute("list", list);
 	            
 	            String openid = PropertiesUtil.getOpenId(code);//获取openid
 	            System.out.println(openid);
