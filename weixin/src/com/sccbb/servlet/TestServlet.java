@@ -24,26 +24,38 @@ public class TestServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
+			doPost(req, resp);
 	}
 
 	
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		resp.setContentType("text/html");  
-        req.setCharacterEncoding("UTF-8");  
-        resp.setCharacterEncoding("UTF-8");  
-        String arr =  req.getParameter("arr").toString();
-       // System.out.println("----------"+arr);
-//		String code = req.getParameter("code").toString();
-		String total = req.getParameter("total").toString();
-		List<Map<String, String>> arrList =JsonArray2List.getJsonListByString(arr);
-		//System.out.println("++++++----------"+arrList);
-		req.setAttribute("arrList", arrList);
-		req.setAttribute("total", total);
-		insertList(arrList);
-		req.getRequestDispatcher("/dcfmsg.jsp").forward(req, resp);
+			resp.setContentType("text/html");  
+	        req.setCharacterEncoding("UTF-8");  
+	        resp.setCharacterEncoding("UTF-8");  
+//	        String arr =  req.getParameter("arr").toString();
+//			String total = req.getParameter("total").toString();
+//			List<Map<String, String>> arrList =JsonArray2List.getJsonListByString(arr);
+			//System.out.println("++++++----------"+arrList);
+//			req.setAttribute("arrList", arrList);
+//			req.setAttribute("total", total);
+	        System.out.println("进入");
+			try{
+				List<Map<String,String>> arrlist  = (List) req.getSession().getAttribute("arr");
+				for(Map<String,String> map :arrlist){
+					System.out.println(map);
+				}
+			}catch (Exception e) {
+				e.printStackTrace();
+			}finally{
+				req.getSession().invalidate();
+			}
+	//		insertList(arrList);
+	//		req.getRequestDispatcher("/dcfmsg.jsp").forward(req, resp);
+		
 	}
+	
+	
     public static void insertList(List<Map<String, String>> arrList){
     	Connection conn = new GetConnection().getConnection();
     	PreparedStatement stmt = null;

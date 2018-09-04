@@ -39,6 +39,7 @@
 		}
 
 		table{
+			text-align:center;
 			font-size: 50px;
 		}
 		.tou{
@@ -125,7 +126,7 @@
 	                   	//location.href="./payafter.do?"+parm+"&state=01";
 	                }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
 	                   	alert("支付取消");
-	                 	//location.href="./payafter.do?"+parm+"&state=02";
+	                 	location.href="./TestServlet";
 	                }else if(res.err_msg =="get_brand_wcpay_request:fail"){
 	                	alert("支付失败");
 	                	//location.href="./payafter.do?"+parm+"&state=03";
