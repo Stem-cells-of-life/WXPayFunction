@@ -3,7 +3,10 @@ package com.sccbb.Util;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,13 +54,6 @@ public class PropertiesUtil {
   			String appid = PropertiesUtil.getProperties().getProperty("APPID").toString().trim();
   			String secret = PropertiesUtil.getProperties().getProperty("SECRET").toString().trim();
   			try{
-  						/*测试号
-  		    			 * appid = wxce126f5a1a10ea21
-  		    			 * secret = 1cf09e81f1de7fccf2ef61e5ffed7f64
-  		    			 *  正是号
-  		    			 *  appid = wxfe7cdb7a0ac5894f
-  		    			 *  secret = c6a5488b81b958000f103042c5e0bdf3
-  		    			 */ 
   				        URL url = new URL("https://api.weixin.qq.com/sns/oauth2/access_token?" +
   				        		"appid=" +appid+
   				        		"&secret=" +secret+
@@ -92,5 +88,14 @@ public class PropertiesUtil {
   			}
   			return openid;
   		}
-        
+        //自动计算时间
+    	public static String getnexttime (String date) throws Exception{
+	    		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				Calendar calendar = Calendar.getInstance();
+		        calendar.setTime(sdf.parse(date));
+		        calendar.add(Calendar.YEAR, 1);
+		        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		        String dateString = formatter.format(calendar.getTime());
+		        return dateString;
+    	}
 }
