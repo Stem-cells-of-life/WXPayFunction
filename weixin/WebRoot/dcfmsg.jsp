@@ -21,11 +21,14 @@
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<style type="text/css">
-		html,body,div{
+		html,body,div,table,th,tr,td{
 			margin: 0;
 			padding: 0;
 		}
-		 table,table tr th, table tr td { border:1px solid #0094ff; }
+		 table,table tr th, table tr td { 
+		 	border:1px solid #0094ff; 
+		 	font-size: 50px;
+		 }
 		
 		div{
 			text-align: center;
@@ -34,37 +37,49 @@
 		button {
 			font-size: 50px;	
 		}
+
+		table{
+			font-size: 50px;
+		}
+		.tou{
+			margin: 10px;
+			font-size: 60px;
+		}
+		.paymsg{
+			margin: 10px;
+		}
 	</style>
   </head>
   <body>
-		<!-- 传过来一个list -->
-		<!-- 展示这个list -->
-		<table align="center">
-			<tr>
-				<th style="display: none;">id</th>
-				<th>协议号</th>
-				<th>协议类型</th>
-				<th>到期时间</th>
-				<th>缴费(元)</th>
-			</tr>
-			<c:forEach items="${arrList}" var="list">
-				<tr class="css_tr">
-					<td class="css_td" style="display: none;">${list.id }</td>
-					<td class="css_td" id="bs_agreement_0001" name="bs_agreement_0001">${list.bs_agreement_0001}</td>
-					<td class="css_td">${list.xy_type}</td>
-					<td class="css_td">${list.bs_fee_0002}</td>
-					<td class="css_td">${list.priceselect}</td>
+  		<div class="tou">
+  			<h1>请确认缴费信息</h1>
+  		</div>
+  		<div class="paymsg">
+			<table align="center">
+				<tr>
+					<th style="display: none;">id</th>
+					<th>协议号</th>
+					<th>缴费年限</th>
+					<th>到期时间</th>
+					<th>缴费(元)</th>
 				</tr>
-			</c:forEach>
-			<tr>
-				<td>合计：</td>
-				<td colspan="5"><span id="money">${total}</span>
-				</td>
-			</tr>
-		</table>
-		
-		
-		<div  id="footer">
+				<c:forEach items="${arrList}" var="list">
+					<tr class="css_tr">
+						<td class="css_td" style="display: none;">${list.id }</td>
+						<td class="css_td" id="bs_agreement_0001" name="bs_agreement_0001">${list.bs_agreement_0001}</td>
+						<td class="css_td">${list.payyear}</td>
+						<td class="css_td">${list.bs_fee_0002}</td>
+						<td class="css_td">${list.priceselect}</td>
+					</tr>
+				</c:forEach>
+				<tr>
+					<td>合计：</td>
+					<td colspan="5"><span id="money">${total}</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="footer">
 			<input type="hidden" name="appId" value="${appId}">
 			<input type="hidden" name="nonceStr" value="${nonceStr}">
 			<input type="hidden" name="prepayId" value="${prepayId}">

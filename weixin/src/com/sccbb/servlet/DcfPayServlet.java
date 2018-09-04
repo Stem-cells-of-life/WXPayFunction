@@ -36,16 +36,29 @@ public class DcfPayServlet extends HttpServlet {
 	        String arr = req.getSession().getAttribute("arr").toString();
 			String code = req.getParameter("code").toString();
 			String total = req.getSession().getAttribute("total").toString();
-			List<Map<String,String>> arrList =JsonArray2List.getJsonListByString(arr);
-			req.setAttribute("arr", arr);
-			req.setAttribute("total", total);
-//			System.out.println("进入dcfpay");
-//			System.out.println(arr);
-//			System.out.println(code);
-//			System.out.println(total);
+			List<Map<String,String>> arrlist =JsonArray2List.getJsonListByString(arr);
+			String bs_fee_0002 =null;
+			try {
+				for(Map<String, String> msgmap : arrlist){
+					if("600".equals(msgmap.get("priceselect"))){
+						msgmap.put("payyear", "1");
+						bs_fee_0002 = msgmap.get("bs_fee_0002");
+						bs_fee_0002 = PropertiesUtil.getnexttime(bs_fee_0002);
+						System.out.println(bs_fee_0002);
+					}else if("2910".equals(msgmap.get("priceselect"))){
+						msgmap.put("payyear", "5");
+						msgmap.get("bs_fee_0002");
+					}else if("5580".equals(msgmap.get("priceselect"))){
+						msgmap.put("payyear", "10");
+						msgmap.get("bs_fee_0002");
+					}else{
+						msgmap.put("payyear", "0");
+					}
+				}
+				req.setAttribute("arrList", arrlist);
+				req.setAttribute("total", total);
 
 //        	spbill_create_ip 获取请求方的ip
-			try {
 	            String ip  =req.getHeader("x-forwarded-for");
 	            if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){  
 	                ip = req.getHeader("Proxy-Client-IP");  
@@ -63,14 +76,11 @@ public class DcfPayServlet extends HttpServlet {
 	           
 	            
 	            String openid = PropertiesUtil.getOpenId(code);//获取openid
-	            System.out.println(openid);
 	            String ordernumber = getordernumber();//订单号
 	            total = String.valueOf(Integer.valueOf(total));//以分为单位
-	            System.out.println(total);
 				String prepay_id = getPrepay_id(ip, openid, total, ordernumber);//获取预支付ID
 				Map<String,String>  payMap = getPayMap(prepay_id);
 				String paySign = getSign(payMap);//获取签名
-				System.out.println(payMap);
 				
 				req.setAttribute("appId", payMap.get("appId"));
 	        	req.setAttribute("timeStamp", payMap.get("timeStamp"));
@@ -85,6 +95,7 @@ public class DcfPayServlet extends HttpServlet {
 			}
             req.getRequestDispatcher("/dcfmsg.jsp").forward(req, resp);
 		}
+		
 		
 		
 		

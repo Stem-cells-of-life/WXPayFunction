@@ -66,7 +66,6 @@ public class JsonArray2List {
 		            rsList.add(map);
 		            
 		        }
-		        System.out.println("转换后的ListMap:"+rsList);
 		        return rsList;
 		    }
 		}

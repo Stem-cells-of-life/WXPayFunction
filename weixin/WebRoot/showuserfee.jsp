@@ -89,7 +89,7 @@ margin-top:10px;
 	</div>
 	
 	<p id="basePath" style="display: none;"><%=basePath %></p>
-	<form id="jsonform" action="/weixin/TestServlet" method="post" enctype="application/x-www-form-urlencoded">
+	<form id="jsonform" action="/weixin/dcfcode.do" method="post" enctype="application/x-www-form-urlencoded">
 		<input id="data4json" name="arr" style="display: none;"/>
 		<input id="total4json" name="total" style="display: none;"/>
 		<button type="button" class="btn-submit btn btn-success" id="btnSubmit">确认付款</button>
