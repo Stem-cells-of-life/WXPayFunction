@@ -94,11 +94,7 @@ public class PropertiesUtil {
 	    		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 				Calendar calendar = Calendar.getInstance();
 		        calendar.setTime(sdf.parse(date));
-<<<<<<< HEAD
-		        calendar.add(Calendar.YEAR, +1);
-=======
 		        calendar.add(Calendar.YEAR, i);
->>>>>>> 7b0a760c4c8197591ee695929bfae84efe800349
 		        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		        String dateString = formatter.format(calendar.getTime());
 		        return dateString;
