@@ -63,8 +63,7 @@ margin-top:10px;
 			</tr>
 			<c:forEach items="${feeList}" var="list">
 				<tr class="css_tr">
-					<td class="css_tr_th" id="checkbox"><input type="checkbox"
-						name="checkbox" /></td>
+					<td class="css_tr_th" id="checkbox"><input type="checkbox"name="checkbox" /></td>
 					<td class="css_td" style="display: none;">${list.id }</td>
 					<td class="css_td" id="bs_agreement_0001" name="bs_agreement_0001">${list.bs_agreement_0001}</td>
 					<td class="css_td">${list.xy_type}</td>

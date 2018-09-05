@@ -43,20 +43,24 @@ public class DcfPayServlet extends HttpServlet {
 					if("600".equals(msgmap.get("priceselect"))){
 						msgmap.put("payyear", "1");
 						bs_fee_0002 = msgmap.get("bs_fee_0002");
-						bs_fee_0002 = PropertiesUtil.getnexttime(bs_fee_0002);
-						System.out.println(bs_fee_0002);
+						bs_fee_0002 = PropertiesUtil.getnexttime(bs_fee_0002,1);
 					}else if("2910".equals(msgmap.get("priceselect"))){
 						msgmap.put("payyear", "5");
-						msgmap.get("bs_fee_0002");
+						bs_fee_0002 = msgmap.get("bs_fee_0002");
+						bs_fee_0002 = PropertiesUtil.getnexttime(bs_fee_0002,5);
 					}else if("5580".equals(msgmap.get("priceselect"))){
 						msgmap.put("payyear", "10");
-						msgmap.get("bs_fee_0002");
+						bs_fee_0002 = msgmap.get("bs_fee_0002");
+						bs_fee_0002 = PropertiesUtil.getnexttime(bs_fee_0002,10);
 					}else{
 						msgmap.put("payyear", "0");
 					}
+					msgmap.put("bs_fee_0002", bs_fee_0002);
 				}
 				req.setAttribute("arrList", arrlist);
 				req.setAttribute("total", total);
+				//把新的list存到session中去，覆盖老的arr
+				req.getSession().setAttribute("arr", arrlist);
 
 //        	spbill_create_ip 获取请求方的ip
 	            String ip  =req.getHeader("x-forwarded-for");
@@ -95,9 +99,6 @@ public class DcfPayServlet extends HttpServlet {
 			}
             req.getRequestDispatcher("/dcfmsg.jsp").forward(req, resp);
 		}
-		
-		
-		
 		
 		//订单号生成
 		public static String getordernumber(){
