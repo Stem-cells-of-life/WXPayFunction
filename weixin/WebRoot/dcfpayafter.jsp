@@ -43,7 +43,7 @@
 </head>
 <body>
 	<div id="success">
-		<h1>谢谢您购买我司产品</h1>
+		<h1>谢谢您的支持!</h1>
 		<img src="img/thank.jpg">
 		<button onclick="backshouye()">返回首页</button>
 	</div>

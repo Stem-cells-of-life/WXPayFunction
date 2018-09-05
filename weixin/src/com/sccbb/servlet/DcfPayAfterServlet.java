@@ -33,6 +33,7 @@ public class DcfPayAfterServlet extends HttpServlet {
 			}finally{
 				req.getSession().invalidate();
 			}
-	        req.getRequestDispatcher("").forward(req, resp);
+	        
+	        req.getRequestDispatcher("/dcfpayafter.jsp").forward(req, resp);
 	}
 }

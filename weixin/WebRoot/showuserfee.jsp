@@ -48,8 +48,6 @@ margin-top:10px;
 	</div>
 	<div class="banner">
 					<h2 class="name3">冻存费续费自助服务</h2>
-	</div>
-	<div class="banner">
 	                <h2 class="name3">尊敬的客户：</h2>
 					<h2 class="name3">${username}</h2>
 	</div>

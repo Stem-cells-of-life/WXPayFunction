@@ -39,6 +39,7 @@ public class DcfPayServlet extends HttpServlet {
 			List<Map<String,String>> arrlist =JsonArray2List.getJsonListByString(arr);
 			String bs_fee_0002 =null;
 			try {
+	            String ordernumber = getordernumber();//订单号
 				for(Map<String, String> msgmap : arrlist){
 					if("600".equals(msgmap.get("priceselect"))){
 						msgmap.put("payyear", "1");
@@ -56,6 +57,7 @@ public class DcfPayServlet extends HttpServlet {
 						msgmap.put("payyear", "0");
 					}
 					msgmap.put("bs_fee_0002", bs_fee_0002);
+					msgmap.put("ordernumber", ordernumber);
 				}
 				req.setAttribute("arrList", arrlist);
 				req.setAttribute("total", total);
@@ -80,8 +82,7 @@ public class DcfPayServlet extends HttpServlet {
 	           
 	            
 	            String openid = PropertiesUtil.getOpenId(code);//获取openid
-	            String ordernumber = getordernumber();//订单号
-	            total = String.valueOf(Integer.valueOf(total));//以分为单位
+	            total = String.valueOf(Integer.valueOf(total)*100);//以分为单位
 				String prepay_id = getPrepay_id(ip, openid, total, ordernumber);//获取预支付ID
 				Map<String,String>  payMap = getPayMap(prepay_id);
 				String paySign = getSign(payMap);//获取签名
@@ -116,7 +117,8 @@ public class DcfPayServlet extends HttpServlet {
 			String nonce_str = WXPayUtil.generateNonceStr();
 			String body = "冻存费续缴";  //注意中文有编码问题 
 			String out_trade_no  = ordernumber;//订单号不能重复
-			String total_fee  = fee;
+		//	String total_fee  = fee;
+			String total_fee  = "1"; //1分钱,测试用
 			String notify_url ="203624vk44.iok.la/weixin/recellpay.do";//支付完成后的回调
 			String trade_type  ="JSAPI"; //支付类型
 		//	String sign_type ="MD5";   //如果有问题，就把这个加上去

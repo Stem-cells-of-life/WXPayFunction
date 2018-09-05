@@ -124,10 +124,10 @@
             	function(res){
 	                if(res.err_msg == "get_brand_wcpay_request:ok" ) {
 	                    alert("支付成功");
-	                   	//location.href="./payafter.do?"+parm+"&state=01";
+	                   	location.href="./dcfpayafter.do&state=01";
 	                }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
 	                   	alert("支付取消");
-	                 	location.href="./dcfpayafter.do";
+	                 	//location.href="./dcfpayafter.do&state=02";
 	                }else if(res.err_msg =="get_brand_wcpay_request:fail"){
 	                	alert("支付失败");
 	                	//location.href="./payafter.do?"+parm+"&state=03";
