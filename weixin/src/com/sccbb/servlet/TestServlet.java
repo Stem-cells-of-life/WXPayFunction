@@ -21,7 +21,7 @@ import com.sccbb.dao.GetConnection;
 
 public class TestServlet extends HttpServlet {
 
-	
+	//测试servlet
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		

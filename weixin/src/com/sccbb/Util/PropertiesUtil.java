@@ -88,12 +88,13 @@ public class PropertiesUtil {
   			}
   			return openid;
   		}
+    
         //自动计算时间
     	public static String getnexttime (String date) throws Exception{
 	    		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 				Calendar calendar = Calendar.getInstance();
 		        calendar.setTime(sdf.parse(date));
-		        calendar.add(Calendar.YEAR, 1);
+		        calendar.add(Calendar.YEAR, +1);
 		        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		        String dateString = formatter.format(calendar.getTime());
 		        return dateString;
