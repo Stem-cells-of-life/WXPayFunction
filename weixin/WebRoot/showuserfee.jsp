@@ -49,6 +49,9 @@ margin-top:10px;
 	<div class="banner">
 					<h2 class="name3">冻存费续费自助服务</h2>
 	</div>
+	<div class="banner">
+					<h2 class="name3"> ${ sessionScope.usernum}</h2>
+	</div>
 	<div class="table-responsive">
 		<table
 			class="table table-striped table-bordered table-hover table-condensed">
