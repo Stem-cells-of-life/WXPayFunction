@@ -32,6 +32,7 @@ public class login extends HttpServlet {
 							req.setCharacterEncoding("UTF-8");
 							String usernum = req.getParameter("usernum").toUpperCase().trim();
 							String sfznum = req.getParameter("sfznum").toUpperCase().trim();
+							req.getSession().setAttribute("usernum", usernum);
 							if(("".equals(usernum)||usernum==null)||("".equals(sfznum)||sfznum==null)||
 									usernum.length()!=13){
 									req.getRequestDispatcher("erro.html").forward(req, resp);
