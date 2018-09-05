@@ -49,6 +49,10 @@ margin-top:10px;
 	<div class="banner">
 					<h2 class="name3">冻存费续费自助服务</h2>
 	</div>
+	<div class="banner">
+	                <h2 class="name3">尊敬的客户：</h2>
+					<h2 class="name3">${username}</h2>
+	</div>
 	<div class="table-responsive">
 		<table
 			class="table table-striped table-bordered table-hover table-condensed">
@@ -65,8 +69,16 @@ margin-top:10px;
 				<tr class="css_tr">
 					<td class="css_tr_th" id="checkbox"><input type="checkbox"name="checkbox" /></td>
 					<td class="css_td" style="display: none;">${list.id }</td>
-					<td class="css_td" id="bs_agreement_0001" name="bs_agreement_0001">${list.bs_agreement_0001}</td>
-					<td class="css_td">${list.xy_type}</td>
+					<td class="css_td" id="bs_agreement_0001" name="bs_agreement_0001">${list.bs_agreement_0001}</td> 
+					<c:if test="${list.xy_type=='01'}">
+						<td class="css_td">脐血</td>
+					</c:if>
+					<c:if test="${list.xy_type=='02'}">
+						<td class="css_td">脐带</td>
+					</c:if>
+					<c:if test="${list.xy_type=='04'}">
+						<td class="css_td">胎盘</td>
+					</c:if>
 					<td class="css_td">${list.bs_fee_0002}</td>
 					<!-- <td class="css_td">${list.dcf}</td>  -->
 					<!-- <td class="css_td">${list.isisvalid}</td> -->

@@ -42,10 +42,7 @@ public class TestServlet extends HttpServlet {
 //			req.setAttribute("total", total);
 			try{
 				List<Map<String,String>> arrlist  = (List) req.getSession().getAttribute("arr");
-				for(Map<String,String> map :arrlist){
-					System.out.println(map);
-					CrudDaoImp.insertList(arrlist);
-				}
+				CrudDaoImp.insertList(arrlist);
 			}catch (Exception e) {
 				e.printStackTrace();
 			}finally{

@@ -40,11 +40,11 @@ public class ShowUserFee extends HttpServlet {
 			throws ServletException, IOException {
 		resp.setContentType("text/html; charset=UTF-8");
 		req.setCharacterEncoding("UTF-8");
-//		String username = req.getParameter("username").toString();
-//		String sfznum = req.getParameter("sfznum").toString();
-		//"420502198106271322" 吴芳
-		
-		List list = getUserMsg("吴芳", "420502198106271322");
+		String username = req.getParameter("username").toString();
+		String sfznum = req.getParameter("sfznum").toString();
+		req.getSession().setAttribute("username", username);
+		req.setAttribute("username", username);
+		List list = getUserMsg(username, sfznum);
 		req.setAttribute("feeList", list);
 		req.getRequestDispatcher("/showuserfee.jsp").forward(req, resp);
 
@@ -64,7 +64,7 @@ public class ShowUserFee extends HttpServlet {
 			String sql = "select " +
 						 "agreement_id,"+
 						 "bs_agreement_0001," +       //协议号
-						 " case xy_type  when '01' then '脐血协议' when '02' then '脐带协议' when '04' then '胎盘协议'  else '其他' end xy_type," +    //协议类型
+						 "xy_type," +    //协议类型
 						 "to_char(bs_fee_0002,'yyyy-mm-dd') bs_fee_0002," +                             //费用到期时间
 						 "dcf," +                                    //上笔冻存费缴纳金额
 						 "isisvalid " +                              //协议有效

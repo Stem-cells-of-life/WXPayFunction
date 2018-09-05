@@ -86,7 +86,8 @@
 			<input type="hidden" name="prepayId" value="${prepayId}">
 			<input type="hidden" name="paySign" value="${paySign}">
 			<input type="hidden" name="timeStamp" value="${timeStamp}">
-			<button onclick="pay()">付钱</button>
+			<button onclick="pay()">确定付款</button>
+			<button onclick="javascript:history.back();">取消付款</button>
  		</div>
  		
   </body>
@@ -126,7 +127,7 @@
 	                   	//location.href="./payafter.do?"+parm+"&state=01";
 	                }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
 	                   	alert("支付取消");
-	                 	location.href="./TestServlet";
+	                 	location.href="./dcfpayafter.do";
 	                }else if(res.err_msg =="get_brand_wcpay_request:fail"){
 	                	alert("支付失败");
 	                	//location.href="./payafter.do?"+parm+"&state=03";
@@ -136,7 +137,6 @@
     }
     
     //以上方法不动
-    
     
   
   </script>

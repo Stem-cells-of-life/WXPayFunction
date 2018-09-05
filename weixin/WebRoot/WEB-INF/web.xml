@@ -123,6 +123,17 @@
     <servlet-name>TestServlet</servlet-name>
     <url-pattern>/TestServlet</url-pattern>
   </servlet-mapping>
- 
+ 	
+ <!-- 冻存费 支付完成后的servlet
+  /weixin/src/com/sccbb/servlet/DcfPayAfterServlet.java
+   -->	
+  <servlet>
+  	<servlet-name>dcfpayafter</servlet-name>
+    <servlet-class></servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>dcfpayafter</servlet-name>
+    <url-pattern>/dcfpayafter.do</url-pattern>
+  </servlet-mapping>
  
 </web-app>
