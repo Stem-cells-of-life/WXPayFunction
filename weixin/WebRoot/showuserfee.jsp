@@ -50,12 +50,8 @@ margin-top:10px;
 					<h2 class="name3">冻存费续费自助服务</h2>
 	</div>
 	<div class="banner">
-<<<<<<< HEAD
 	                <h2 class="name3">尊敬的客户：</h2>
 					<h2 class="name3">${username}</h2>
-=======
-					<h2 class="name3"> ${ sessionScope.usernum}</h2>
->>>>>>> 2c2a5a183861572522645371a53939b87a0c18ab
 	</div>
 	<div class="table-responsive">
 		<table
