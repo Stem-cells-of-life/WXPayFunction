@@ -79,7 +79,6 @@ public class DcfPayServlet extends HttpServlet {
 	                String[] ips = ip.split(",");  
 	                ip = ips[0].trim();  
 	            } 
-	           
 	            
 	            String openid = PropertiesUtil.getOpenId(code);//获取openid
 	            total = String.valueOf(Integer.valueOf(total)*100);//以分为单位

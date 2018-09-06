@@ -44,6 +44,7 @@ public class ShowUserFee extends HttpServlet {
 		String sfznum = req.getParameter("sfznum").toString();
 		req.getSession().setAttribute("username", username);
 		req.setAttribute("username", username);
+		
 		List list = getUserMsg(username, sfznum);
 		req.setAttribute("feeList", list);
 		req.getRequestDispatcher("/showuserfee.jsp").forward(req, resp);

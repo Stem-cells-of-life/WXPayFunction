@@ -79,7 +79,6 @@ public class CrudDaoImp {
    				stmt.clearBatch();
    		} catch (SQLException e) {
    			e.printStackTrace();
-   			System.out.println("保存失败");
    		}finally {
    			try {
    				stmt.close();

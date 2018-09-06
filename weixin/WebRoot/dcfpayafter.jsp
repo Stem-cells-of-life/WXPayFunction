@@ -81,7 +81,7 @@
 			}
 	}
 	function backshouye(){
-					window.location.href="http://203624vk44.iok.la/weixin/shouye.html?a="+Math.floor(Math.random()*10000);
-			}
+			window.location.href="http://203624vk44.iok.la/weixin/shouye.html?a="+Math.floor(Math.random()*10000);
+	}
 </script>
 </html>

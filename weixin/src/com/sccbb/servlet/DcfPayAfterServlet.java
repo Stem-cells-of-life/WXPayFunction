@@ -25,15 +25,18 @@ public class DcfPayAfterServlet extends HttpServlet {
 			resp.setContentType("text/html");  
 	        req.setCharacterEncoding("UTF-8");  
 	        resp.setCharacterEncoding("UTF-8");
+	        String state = req.getParameter("state").toString();
 	        try{
-				List<Map<String,String>> arrlist  = (List) req.getSession().getAttribute("arr");
-				CrudDaoImp.insertList(arrlist);
+	        	if("01".equals(state)||"01"==state){
+	        		List<Map<String,String>> arrlist  = (List) req.getSession().getAttribute("arr");
+	        		CrudDaoImp.insertList(arrlist);
+	        	}
+				req.setAttribute("state", state);
 			}catch (Exception e) {
 				e.printStackTrace();
 			}finally{
 				req.getSession().invalidate();
 			}
-	        
 	        req.getRequestDispatcher("/dcfpayafter.jsp").forward(req, resp);
 	}
 }
