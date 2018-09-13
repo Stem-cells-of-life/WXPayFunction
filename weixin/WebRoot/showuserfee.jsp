@@ -40,6 +40,9 @@ text-align:center;
 .banner h2{
 margin-top:10px;
 }
+#returnMainPage{
+margin:0 auto;
+}
 </style>
 </head>
 <body>
@@ -104,6 +107,7 @@ margin-top:10px;
 		<button type="button" class="btn-submit btn btn-success" id="btnSubmit">确认付款</button>
 	</form>
 	
+	<button id="returnMainPage">返回首页</button>
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript">
 		//获取选中的 checkbox的值
@@ -172,14 +176,23 @@ margin-top:10px;
 		});
 
 		$("#btnSubmit").click(function() { //点击确认付款提交数据
+		
 			var jsonform = $("#jsonform");
-			var data4json = JSON.stringify(getCheckedValues());
-			var total = JSON.stringify(getTotalFee(getCheckedValues()));
-			$("#data4json").attr("value",data4json);
-			$("#total4json").attr("value",total);
-			jsonform.submit();
+			if(getCheckedValues()==0){
+			        alert("您选择的协议为空，请选择有效的协议后，再付款！");
+			}
+			else{
+			    var data4json = JSON.stringify(getCheckedValues());
+			    var total = JSON.stringify(getTotalFee(getCheckedValues()));
+			    $("#data4json").attr("value",data4json);
+			    $("#total4json").attr("value",total);
+			    jsonform.submit();
+			}	
 		});
-
+		
+		$("#returnMainPage").click(function() { //返回主页
+		   window.location.href="http://203624vk44.iok.la/weixin/shouye.html?a="+Math.floor(Math.random()*10000);	
+		});
 		//function ajaxSend() {
 		//	var basePath = $("#basePath").html();
 		//	$.ajax({
