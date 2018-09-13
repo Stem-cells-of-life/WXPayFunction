@@ -66,13 +66,13 @@ public class ShowUserFee extends HttpServlet {
 						 "agreement_id,"+
 						 "bs_agreement_0001," +       //协议号
 						 "xy_type," +    //协议类型
-						 "to_char(bs_fee_0002,'yyyy-mm-dd') bs_fee_0002," +                             //费用到期时间
+						 "to_char(bs_fee_0002,'yyyy-mm-dd') bs_fee_0002," + //费用到期时间
 						 "dcf," +                                    //上笔冻存费缴纳金额
 						 "isisvalid " +                              //协议有效
 						 "from " +
 						 "VIEW_TEMP_XNW_wxpay " +
 						 "where " +
-						 "isisvalid<>'已作废作废' and BS_AGREEMENT_0025=? and BS_AGREEMENT_0034=?";
+						 "isisvalid<>'已作废' and BS_AGREEMENT_0025=? and BS_AGREEMENT_0034=?";
 				ps = conn.prepareStatement(sql);
 				ps.setString(1, username);
 				ps.setString(2, sfznum);
