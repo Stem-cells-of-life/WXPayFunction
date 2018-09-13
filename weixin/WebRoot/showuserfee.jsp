@@ -40,9 +40,6 @@ text-align:center;
 .banner h2{
 margin-top:10px;
 }
-#returnMainPage{
-margin:0 auto;
-}
 </style>
 </head>
 <body>
@@ -105,9 +102,8 @@ margin:0 auto;
 		<input id="data4json" name="arr" style="display: none;"/>
 		<input id="total4json" name="total" style="display: none;"/>
 		<button type="button" class="btn-submit btn btn-success" id="btnSubmit">确认付款</button>
+		<button type="button" class="btn-submit btn btn-success"  id="returnMainPage" >返回首页</button>
 	</form>
-	
-	<button id="returnMainPage">返回首页</button>
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript">
 		//获取选中的 checkbox的值
