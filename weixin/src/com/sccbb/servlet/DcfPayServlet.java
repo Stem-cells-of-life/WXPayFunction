@@ -116,8 +116,8 @@ public class DcfPayServlet extends HttpServlet {
 			String nonce_str = WXPayUtil.generateNonceStr();
 			String body = "冻存费续缴";  //注意中文有编码问题 
 			String out_trade_no  = ordernumber;//订单号不能重复
-//			String total_fee  = fee;
-			String total_fee  = "1"; //1分钱,测试用
+			String total_fee  = fee;
+//			String total_fee  = "1"; //1分钱,测试用
 			String notify_url ="203624vk44.iok.la/weixin/recellpay.do";//支付完成后的回调
 			String trade_type  ="JSAPI"; //支付类型
 		//	String sign_type ="MD5";   //如果有问题，就把这个加上去

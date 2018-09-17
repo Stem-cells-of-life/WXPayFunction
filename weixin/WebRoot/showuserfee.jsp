@@ -40,6 +40,10 @@ text-align:center;
 .banner h2{
 margin-top:10px;
 }
+
+#rederitPage{
+	text-align: center;
+}
 </style>
 </head>
 <body>
@@ -101,8 +105,10 @@ margin-top:10px;
 	<form id="jsonform" action="/weixin/dcfcode.do" method="post" enctype="application/x-www-form-urlencoded">
 		<input id="data4json" name="arr" style="display: none;"/>
 		<input id="total4json" name="total" style="display: none;"/>
+	<div id="rederitPage">
 		<button type="button" class="btn-submit btn btn-success" id="btnSubmit">确认付款</button>
 		<button type="button" class="btn-submit btn btn-success"  id="returnMainPage" >返回首页</button>
+	</div>
 	</form>
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript">
